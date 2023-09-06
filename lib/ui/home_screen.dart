@@ -56,9 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 5.0),
                       child: ChoiceChip(
                         selectedColor: colorScheme.primary,
-                        checkmarkColor: selectedTopicIndex == index
-                            ? colorScheme.onPrimary
-                            : colorScheme.onSurface,
+
                         labelStyle: TextStyle(
                             color: selectedTopicIndex == index
                                 ? colorScheme.onPrimary
@@ -119,3 +117,9 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+
+
+///git add .
+///git commit -m "kya kya kra"
+///git push
