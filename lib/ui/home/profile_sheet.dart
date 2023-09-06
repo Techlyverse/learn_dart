@@ -6,7 +6,10 @@ class ProfileSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+      padding: EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 12,
+      ),
       child: Column(
         children: [
           SizedBox(height: 10),
@@ -16,28 +19,26 @@ class ProfileSheet extends StatelessWidget {
             subtitle: Text("User Email"),
             trailing: Icon(Icons.navigate_next),
           ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.start,
-          //   children: [
-          //     CircleAvatar(radius: 35,),
-          //     SizedBox(width: 25),
-          //     Column(
-          //       crossAxisAlignment: CrossAxisAlignment.start,
-          //       children: [
-          //         Text("Raghav Shukla", style: ,),
-          //         Text("user email"),
-          //       ],
-          //     ),
-          //     Spacer(),
-          //     Icon(Icons.navigate_next),
-          //   ],
-          // ),
+          SizedBox(height: 10),
           Divider(height: 20),
           ListTile(
             leading: Icon(Icons.settings_outlined),
             title: Text("Settings"),
             trailing: Icon(Icons.navigate_next),
           ),
+          Divider(height: 20),
+          ListTile(
+            leading: Icon(Icons.settings_outlined),
+            title: Text("Settings"),
+            trailing: Icon(Icons.navigate_next),
+          ),
+          Divider(height: 20),
+          ListTile(
+            leading: Icon(Icons.settings_outlined),
+            title: Text("Settings"),
+            trailing: Icon(Icons.navigate_next),
+          ),
+          Divider(height: 20),
         ],
       ),
     );

@@ -1,11 +1,16 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:learn_dart/core/services/ui_style.dart';
 import 'package:learn_dart/core/theme/dark_theme.dart';
 import 'package:learn_dart/core/theme/light_theme.dart';
 import 'package:learn_dart/ui/main_screen.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   setUIStyle();
   runApp(const MyApp());
 }
