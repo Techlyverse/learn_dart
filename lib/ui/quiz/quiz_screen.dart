@@ -10,10 +10,8 @@ class QuizScreen extends StatefulWidget {
 class _QuizScreenState extends State<QuizScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Quiz Screen"),
-      ),
+    return Center(
+      child: Text("Quiz"),
     );
   }
 }

@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:learn_dart/core/helper/syntax_helper.dart';
+import 'package:syntax_highlight/syntax_highlight.dart';
 
-class ExampleScreen extends StatefulWidget {
+class ExampleScreen extends StatelessWidget {
   const ExampleScreen({super.key});
 
-  @override
-  State<ExampleScreen> createState() => _ExampleScreenState();
-}
+  static const String myCode = '''void main(){print("Hello World");}''';
 
-class _ExampleScreenState extends State<ExampleScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Examaple"),
-      ),
-    );
+    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
+    return SizedBox();
   }
 }

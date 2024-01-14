@@ -5,8 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'color_scheme.dart';
 
 ThemeData darkTheme() {
-  return ThemeData.dark(useMaterial3: true).copyWith(
-
+  return ThemeData.dark().copyWith(
     colorScheme: darkColorScheme,
     scaffoldBackgroundColor: darkColorScheme.surface,
     textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),

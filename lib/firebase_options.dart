@@ -48,17 +48,17 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyD7WfLYXeNuoomdTpLwdSTz1VrIVIHtt4k',
-    appId: '1:61208255675:web:77f9307df848f2acd59d9e',
+    appId: '1:61208255675:web:85ea7ad9c5e9afa0d59d9e',
     messagingSenderId: '61208255675',
     projectId: 'learndart01',
     authDomain: 'learndart01.firebaseapp.com',
     storageBucket: 'learndart01.appspot.com',
-    measurementId: 'G-N9Q31DLLC1',
+    measurementId: 'G-RVH1TQ4R54',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDPpcxzXaR_32xhECvJGrnPMQOs_2DC-SY',
-    appId: '1:61208255675:android:985eb71cacb43b72d59d9e',
+    appId: '1:61208255675:android:2ae0787e92b82592d59d9e',
     messagingSenderId: '61208255675',
     projectId: 'learndart01',
     storageBucket: 'learndart01.appspot.com',
@@ -66,11 +66,10 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAXB7erXBsTlFLXL5g8QPdCWebE1TG840U',
-    appId: '1:61208255675:ios:0ef3f40b6af146d0d59d9e',
+    appId: '1:61208255675:ios:ae364170328e1e33d59d9e',
     messagingSenderId: '61208255675',
     projectId: 'learndart01',
     storageBucket: 'learndart01.appspot.com',
-    iosClientId: '61208255675-5llgf1loq0pnraurmv2tvpqfnb4ievdi.apps.googleusercontent.com',
-    iosBundleId: 'com.techlyverse.learnDart',
+    iosBundleId: 'com.learnapp.dart.app',
   );
 }

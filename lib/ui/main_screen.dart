@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:learn_dart/ui/example_screen.dart';
-import 'package:learn_dart/ui/home_screen.dart';
-import 'package:learn_dart/ui/leaderboard_screen.dart';
-import 'package:learn_dart/ui/quiz_screen.dart';
+import 'package:learn_dart/ui/home/home_screen.dart';
+import 'package:learn_dart/ui/leaderboard/leaderboard_screen.dart';
+import 'package:learn_dart/ui/quiz/quiz_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -12,17 +12,30 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int currentPage = 0;
-  List<Widget> pages = [
-    const HomeScreen(),
-    const ExampleScreen(),
-    const LeaderboardScreen(),
-    const QuizScreen(),
+  static const List<Widget> pages = [
+    HomeScreen(),
+    ExampleScreen(),
+    LeaderboardScreen(),
+    QuizScreen(),
   ];
+  int currentPage = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Learn Dart"),
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.person_outline),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.settings_outlined),
+          ),
+        ],
+      ),
       body: pages[currentPage],
       bottomNavigationBar: NavigationBar(
         selectedIndex: currentPage,
