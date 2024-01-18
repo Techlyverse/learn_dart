@@ -25,7 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
               onChanged: (value) {},
               decoration: InputDecoration(
                 filled: true,
-                fillColor: colorScheme.onInverseSurface,
+                fillColor: colorScheme.surfaceVariant,
+                contentPadding: const EdgeInsets.symmetric(horizontal: 8),
                 prefixIcon: const Icon(Icons.search),
                 hintText: "Search for examples",
                 hintStyle: const TextStyle(fontSize: 14),

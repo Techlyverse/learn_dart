@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_dart/ui/example_screen.dart';
 import 'package:learn_dart/ui/home/home_screen.dart';
@@ -12,6 +13,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  final currentUser = FirebaseAuth.instance.currentUser;
   static const List<Widget> pages = [
     HomeScreen(),
     ExampleScreen(),
@@ -24,7 +26,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Learn Dart"),
+        title:  Text("Welcome"),
         leading: IconButton(
           onPressed: () {},
           icon: const Icon(Icons.person_outline),
