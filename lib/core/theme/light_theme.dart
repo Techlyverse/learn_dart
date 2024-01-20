@@ -6,10 +6,17 @@ import 'color_scheme.dart';
 
 ThemeData lightTheme() {
   return ThemeData.light().copyWith(
-    textTheme: GoogleFonts.poppinsTextTheme(),
+    textTheme: GoogleFonts.ubuntuTextTheme(),
     colorScheme: lightColorScheme,
-    appBarTheme: const AppBarTheme(
-      systemOverlayStyle: SystemUiOverlayStyle(
+    appBarTheme: AppBarTheme(
+      elevation: 0,
+      surfaceTintColor: Colors.transparent,
+      backgroundColor: Colors.transparent,
+      titleTextStyle: GoogleFonts.gluten(
+        fontSize: 20,
+        color: Colors.black,
+      ),
+      systemOverlayStyle: const SystemUiOverlayStyle(
         statusBarIconBrightness: Brightness.dark,
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
@@ -18,6 +25,17 @@ ThemeData lightTheme() {
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12.0),
       ),
+    ),
+    iconButtonTheme: IconButtonThemeData(
+      style: IconButton.styleFrom(
+        backgroundColor: lightColorScheme.tertiaryContainer,
+      ),
+    ),
+    navigationBarTheme: NavigationBarThemeData(
+      elevation: 0,
+      labelTextStyle: MaterialStatePropertyAll(GoogleFonts.bubblegumSans()),
+      backgroundColor: lightColorScheme.secondaryContainer,
+      indicatorColor: lightColorScheme.primary,
     ),
   );
 }

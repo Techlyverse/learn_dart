@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../core/helper/syntax_helper.dart';
 
 class DescriptionScreen extends StatelessWidget {
@@ -18,7 +19,7 @@ class DescriptionScreen extends StatelessWidget {
               return Center(
                 child: Text.rich(
                   highlighter.data!,
-                  style: const TextStyle(fontSize: 12),
+                  style: GoogleFonts.sourceCodePro(),
                 ),
               );
             } else {

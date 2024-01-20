@@ -4,7 +4,6 @@ import 'package:learn_dart/ui/example_screen.dart';
 import 'package:learn_dart/ui/game/game.dart';
 import 'package:learn_dart/ui/home/home_screen.dart';
 import 'package:learn_dart/ui/leaderboard/leaderboard_screen.dart';
-import 'package:learn_dart/ui/quiz/quiz_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -28,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text("Welcome"),
+        title: Text("Welcome"),
         leading: IconButton(
           onPressed: () {},
           icon: const Icon(Icons.person_outline),
@@ -51,22 +50,34 @@ class _MainScreenState extends State<MainScreen> {
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home),
+            selectedIcon: Icon(
+              Icons.home,
+              color: Colors.white,
+            ),
             label: "Home",
           ),
           NavigationDestination(
             icon: Icon(Icons.my_library_books_outlined),
-            selectedIcon: Icon(Icons.my_library_books),
+            selectedIcon: Icon(
+              Icons.my_library_books,
+              color: Colors.white,
+            ),
             label: "Example",
           ),
           NavigationDestination(
             icon: Icon(Icons.leaderboard_outlined),
-            selectedIcon: Icon(Icons.leaderboard),
-            label: "Leaderboard",
+            selectedIcon: Icon(
+              Icons.leaderboard,
+              color: Colors.white,
+            ),
+            label: "Rank",
           ),
           NavigationDestination(
             icon: Icon(Icons.dashboard_outlined),
-            selectedIcon: Icon(Icons.dashboard),
+            selectedIcon: Icon(
+              Icons.dashboard,
+              color: Colors.white,
+            ),
             label: "Quiz",
           ),
         ],
