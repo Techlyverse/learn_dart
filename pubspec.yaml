@@ -38,11 +38,15 @@ dependencies:
   syntax_highlight: ^0.3.0
   dart_style: ^2.3.4
 
+  #game
+  flame: ^1.14.0
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  flame_lint: ^1.1.2
   flutter_lints: ^2.0.0
 
 # For information on the generic Dart part of this file, see the

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_dart/ui/example_screen.dart';
+import 'package:learn_dart/ui/game/game.dart';
 import 'package:learn_dart/ui/home/home_screen.dart';
 import 'package:learn_dart/ui/leaderboard/leaderboard_screen.dart';
 import 'package:learn_dart/ui/quiz/quiz_screen.dart';
@@ -18,7 +19,8 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     ExampleScreen(),
     LeaderboardScreen(),
-    QuizScreen(),
+    GameScreen()
+    //QuizScreen(),
   ];
   int currentPage = 0;
 
