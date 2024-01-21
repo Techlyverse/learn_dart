@@ -77,27 +77,32 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 }),
           ),
-        //  const SizedBox(height: 10),
+          //  const SizedBox(height: 10),
           //const Divider(),
-          Expanded(
-            child: StreamBuilder<QuerySnapshot>(
-                stream: FirebaseFirestore.instance
-                    .collection("programs")
-                    .snapshots(),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
-                  } else if (snapshot.hasError) {
-                    return const Center(child: Text("Error"));
-                  } else if (snapshot.data != null) {
-                    return FeedScreen(snapshot: snapshot.data!);
-                  } else {
-                    return const Center(child: Text("No data found"));
-                  }
-                }),
-          ),
+          buildFeedList(),
         ],
       ),
+    );
+  }
+
+  Widget buildFeedList() {
+    return Expanded(
+      child: StreamBuilder<QuerySnapshot>(
+          stream: FirebaseFirestore.instance.collection("programs").snapshots(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return const Center(child: Text("Error"));
+            } else if (snapshot.data != null) {
+              return FeedScreen(
+                key: const Key("feed_screen"),
+                snapshot: snapshot.data!,
+              );
+            } else {
+              return const Center(child: Text("No data found"));
+            }
+          }),
     );
   }
 }

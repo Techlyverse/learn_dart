@@ -26,50 +26,53 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return GestureDetector(
+      onTap: (){FocusScope.of(context).unfocus();},
+      child: Scaffold(
 
-      body: pages[currentPage],
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: currentPage,
-        onDestinationSelected: (value) {
-          setState(() {
-            currentPage = value;
-          });
-        },
-        destinations: const [
-          NavigationDestination(
-            icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(
-              Icons.home,
-              color: Colors.white,
+        body: pages[currentPage],
+        bottomNavigationBar: NavigationBar(
+          selectedIndex: currentPage,
+          onDestinationSelected: (value) {
+            setState(() {
+              currentPage = value;
+            });
+          },
+          destinations: const [
+            NavigationDestination(
+              icon: Icon(Icons.home_outlined),
+              selectedIcon: Icon(
+                Icons.home,
+                color: Colors.white,
+              ),
+              label: "Home",
             ),
-            label: "Home",
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.my_library_books_outlined),
-            selectedIcon: Icon(
-              Icons.my_library_books,
-              color: Colors.white,
+            NavigationDestination(
+              icon: Icon(Icons.my_library_books_outlined),
+              selectedIcon: Icon(
+                Icons.my_library_books,
+                color: Colors.white,
+              ),
+              label: "Example",
             ),
-            label: "Example",
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.leaderboard_outlined),
-            selectedIcon: Icon(
-              Icons.leaderboard,
-              color: Colors.white,
+            NavigationDestination(
+              icon: Icon(Icons.leaderboard_outlined),
+              selectedIcon: Icon(
+                Icons.leaderboard,
+                color: Colors.white,
+              ),
+              label: "Rank",
             ),
-            label: "Rank",
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.sports_esports_outlined),
-            selectedIcon: Icon(
-              Icons.sports_esports,
-              color: Colors.white,
+            NavigationDestination(
+              icon: Icon(Icons.sports_esports_outlined),
+              selectedIcon: Icon(
+                Icons.sports_esports,
+                color: Colors.white,
+              ),
+              label: "Game",
             ),
-            label: "Game",
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

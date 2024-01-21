@@ -12,11 +12,19 @@ class FeedScreen extends StatelessWidget {
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
         itemCount: snapshot.docs.length,
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         itemBuilder: (_, index) {
-          return FeedTile(snapshot: snapshot.docs[index], index: index);
+          return FeedTile(
+            key: Key(index.toString()),
+            snapshot: snapshot.docs[index],
+            index: index,
+          );
         },
         separatorBuilder: (_, i) {
-          return const Divider(height: 10, color: Colors.transparent,);
+          return const Divider(
+            height: 10,
+            color: Colors.transparent,
+          );
         });
   }
 }
