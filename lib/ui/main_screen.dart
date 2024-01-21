@@ -4,6 +4,7 @@ import 'package:learn_dart/ui/example_screen.dart';
 import 'package:learn_dart/ui/game/game.dart';
 import 'package:learn_dart/ui/home/home_screen.dart';
 import 'package:learn_dart/ui/leaderboard/leaderboard_screen.dart';
+import 'package:learn_dart/ui/quiz/quiz_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -18,10 +19,10 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     ExampleScreen(),
     LeaderboardScreen(),
-    GameScreen()
-    //QuizScreen(),
+    //GameScreen()
+    QuizScreen(),
   ];
-  int currentPage = 0;
+  int currentPage = 3;
 
   @override
   Widget build(BuildContext context) {
@@ -73,12 +74,12 @@ class _MainScreenState extends State<MainScreen> {
             label: "Rank",
           ),
           NavigationDestination(
-            icon: Icon(Icons.dashboard_outlined),
+            icon: Icon(Icons.sports_esports_outlined),
             selectedIcon: Icon(
-              Icons.dashboard,
+              Icons.sports_esports,
               color: Colors.white,
             ),
-            label: "Quiz",
+            label: "Game",
           ),
         ],
       ),
