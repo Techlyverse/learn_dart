@@ -19,7 +19,6 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     ExampleScreen(),
     LeaderboardScreen(),
-    //GameScreen()
     QuizScreen(),
   ];
   int currentPage = 3;

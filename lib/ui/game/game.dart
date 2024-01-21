@@ -15,8 +15,11 @@ class GameScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GameWidget(
-      game: FlameGame(world: MyWorld()),
+    return Scaffold(
+      appBar: AppBar(title: const Text("something interesting")),
+      body: GameWidget(
+        game: FlameGame(world: MyWorld()),
+      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:learn_dart/ui/game/game.dart';
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
@@ -16,13 +17,17 @@ class _QuizScreenState extends State<QuizScreen> {
         AppBar(
           title: Text("Some heading"),
         ),
-        Container(
-          height: 200,
-          width: double.maxFinite,
-          margin: const EdgeInsets.all(12),
-          //padding: const EdgeInsets.all(12),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
+        InkWell(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const GameScreen()));
+          },
+          child: Container(
+            height: 200,
+            width: double.maxFinite,
+            margin: const EdgeInsets.all(12),
+            //padding: const EdgeInsets.all(12),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               // gradient: const LinearGradient(
               //   begin: Alignment.topLeft,
@@ -36,13 +41,15 @@ class _QuizScreenState extends State<QuizScreen> {
                 image: AssetImage("assets/blue.jpg"),
                 fit: BoxFit.cover,
                 //filterQuality: FilterQuality.none,
-              )),
+              ),
+            ),
 
-          child: Text(
-            "Game",
-            style: GoogleFonts.gluten(
-              fontSize: 45,
-              color: Colors.grey.shade900,
+            child: Text(
+              "Game",
+              style: GoogleFonts.gluten(
+                fontSize: 45,
+                color: Colors.grey.shade900,
+              ),
             ),
           ),
         ),

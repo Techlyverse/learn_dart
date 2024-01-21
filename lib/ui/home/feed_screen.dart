@@ -9,6 +9,10 @@ class FeedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 12,
+          vertical: 20,
+        ),
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
         itemCount: snapshot.docs.length,
