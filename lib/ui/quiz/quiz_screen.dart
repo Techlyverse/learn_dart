@@ -29,7 +29,7 @@ class _QuizScreenState extends State<QuizScreen> {
               //     Colors.lightBlueAccent,
               //   ],
               // ),
-              image: DecorationImage(
+              image: const DecorationImage(
                 image: AssetImage("assets/blue.jpg"),
                 fit: BoxFit.cover,
                 filterQuality: FilterQuality.none,
@@ -37,7 +37,10 @@ class _QuizScreenState extends State<QuizScreen> {
 
           child: Text(
             "Game",
-            style: GoogleFonts.gluten(fontSize: 50),
+            style: GoogleFonts.gluten(
+              fontSize: 45,
+              color: Colors.grey.shade900,
+            ),
           ),
         ),
         Container(
@@ -56,7 +59,7 @@ class _QuizScreenState extends State<QuizScreen> {
               //     Colors.lightBlueAccent,
               //   ],
               // ),
-              image: DecorationImage(
+              image: const DecorationImage(
                 image: AssetImage("assets/pink.jpg"),
                 fit: BoxFit.cover,
                 filterQuality: FilterQuality.none,
@@ -64,7 +67,10 @@ class _QuizScreenState extends State<QuizScreen> {
 
           child: Text(
             "Quiz",
-            style: GoogleFonts.gluten(fontSize: 50),
+            style: GoogleFonts.gluten(
+              fontSize: 45,
+              color: Colors.grey.shade900,
+            ),
           ),
         ),
         // Container(
@@ -90,8 +96,8 @@ class _QuizScreenState extends State<QuizScreen> {
         //       )),
         //
         //   child: Text(
-        //     "Other",
-        //     style: GoogleFonts.gluten(fontSize: 50),
+        //     "Certificate",
+        //     style: GoogleFonts.gluten(fontSize: 40),
         //   ),
         // ),
       ],

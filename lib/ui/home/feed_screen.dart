@@ -16,7 +16,7 @@ class FeedScreen extends StatelessWidget {
           return FeedTile(snapshot: snapshot.docs[index], index: index);
         },
         separatorBuilder: (_, i) {
-          return const Divider();
+          return const Divider(height: 10, color: Colors.transparent,);
         });
   }
 }

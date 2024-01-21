@@ -19,6 +19,19 @@ class _HomeScreenState extends State<HomeScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Column(
         children: [
+          AppBar(
+            title: Text("Welcome"),
+            leading: IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.person_outline),
+            ),
+            actions: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.settings_outlined),
+              ),
+            ],
+          ),
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: TextField(
@@ -64,8 +77,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 }),
           ),
-          const SizedBox(height: 10),
-          const Divider(),
+        //  const SizedBox(height: 10),
+          //const Divider(),
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance
