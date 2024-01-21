@@ -9,7 +9,11 @@ class FeedTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return ListTile(
+      tileColor: colorScheme.tertiaryContainer,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
       onTap: () {
         Navigator.push(
             context,

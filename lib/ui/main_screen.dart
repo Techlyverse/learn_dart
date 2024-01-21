@@ -27,19 +27,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Welcome"),
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.person_outline),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.settings_outlined),
-          ),
-        ],
-      ),
+
       body: pages[currentPage],
       bottomNavigationBar: NavigationBar(
         selectedIndex: currentPage,

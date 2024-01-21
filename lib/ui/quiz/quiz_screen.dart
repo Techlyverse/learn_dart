@@ -18,24 +18,88 @@ class _QuizScreenState extends State<QuizScreen> {
           width: double.maxFinite,
           margin: const EdgeInsets.all(12),
           //padding: const EdgeInsets.all(12),
+          alignment: Alignment.center,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            gradient: const LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Colors.blueAccent,
-                Colors.lightBlueAccent,
-              ],
-            ),
-          ),
+              borderRadius: BorderRadius.circular(16),
+              // gradient: const LinearGradient(
+              //   begin: Alignment.topLeft,
+              //   end: Alignment.bottomRight,
+              //   colors: [
+              //     Colors.blueAccent,
+              //     Colors.lightBlueAccent,
+              //   ],
+              // ),
+              image: const DecorationImage(
+                image: AssetImage("assets/blue.jpg"),
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.none,
+              )),
 
           child: Text(
             "Game",
-            style: GoogleFonts.gluten(fontSize: 40, color: Colors.white),
+            style: GoogleFonts.gluten(
+              fontSize: 45,
+              color: Colors.grey.shade900,
+            ),
           ),
         ),
+        Container(
+          height: 200,
+          width: double.maxFinite,
+          margin: const EdgeInsets.all(12),
+          //padding: const EdgeInsets.all(12),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              // gradient: const LinearGradient(
+              //   begin: Alignment.topLeft,
+              //   end: Alignment.bottomRight,
+              //   colors: [
+              //     Colors.blueAccent,
+              //     Colors.lightBlueAccent,
+              //   ],
+              // ),
+              image: const DecorationImage(
+                image: AssetImage("assets/pink.jpg"),
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.none,
+              )),
 
+          child: Text(
+            "Quiz",
+            style: GoogleFonts.gluten(
+              fontSize: 45,
+              color: Colors.grey.shade900,
+            ),
+          ),
+        ),
+        // Container(
+        //   height: 200,
+        //   width: double.maxFinite,
+        //   margin: const EdgeInsets.all(12),
+        //   //padding: const EdgeInsets.all(12),
+        //   alignment: Alignment.center,
+        //   decoration: BoxDecoration(
+        //       borderRadius: BorderRadius.circular(16),
+        //       // gradient: const LinearGradient(
+        //       //   begin: Alignment.topLeft,
+        //       //   end: Alignment.bottomRight,
+        //       //   colors: [
+        //       //     Colors.blueAccent,
+        //       //     Colors.lightBlueAccent,
+        //       //   ],
+        //       // ),
+        //       image: DecorationImage(
+        //         image: AssetImage("assets/green.jpg"),
+        //         fit: BoxFit.cover,
+        //         filterQuality: FilterQuality.none,
+        //       )),
+        //
+        //   child: Text(
+        //     "Certificate",
+        //     style: GoogleFonts.gluten(fontSize: 40),
+        //   ),
+        // ),
       ],
     );
   }
