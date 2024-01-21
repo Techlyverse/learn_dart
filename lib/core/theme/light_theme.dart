@@ -26,11 +26,11 @@ ThemeData lightTheme() {
         borderRadius: BorderRadius.circular(12.0),
       ),
     ),
-    iconButtonTheme: IconButtonThemeData(
-      style: IconButton.styleFrom(
-        backgroundColor: lightColorScheme.tertiaryContainer,
-      ),
-    ),
+    // iconButtonTheme: IconButtonThemeData(
+    //   style: IconButton.styleFrom(
+    //     backgroundColor: lightColorScheme.tertiaryContainer,
+    //   ),
+    // ),
     navigationBarTheme: NavigationBarThemeData(
       elevation: 0,
       labelTextStyle: MaterialStatePropertyAll(GoogleFonts.bubblegumSans()),
@@ -38,8 +38,7 @@ ThemeData lightTheme() {
       indicatorColor: lightColorScheme.primary,
     ),
     listTileTheme: ListTileThemeData(
-
-      tileColor: lightColorScheme.tertiaryContainer,
+      tileColor: lightColorScheme.secondaryContainer,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
