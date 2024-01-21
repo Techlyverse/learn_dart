@@ -28,6 +28,7 @@ This project is a starting point for a Flutter application.
 8. There will be notifcations with routes.
 9. there will be a group or gloab chat in specific course where user can discuss and  ask the problems and help to others.
 10. There will be a in App quiz.
+11. database sql
 
 
 A few resources to get you started if this is your first Flutter project:

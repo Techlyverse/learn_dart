@@ -26,6 +26,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: pages[currentPage],
       bottomNavigationBar: NavigationBar(
+        selectedIndex: currentPage,
         onDestinationSelected: (value) {
           setState(() {
             currentPage = value;
