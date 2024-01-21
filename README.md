@@ -1,6 +1,6 @@
 # learn_dart
 
-A new Flutter project.
+Learn dart programming language
 
 ## Getting Started
 

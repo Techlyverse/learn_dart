@@ -1,19 +1,20 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:learn_dart/main_screen.dart';
+import 'package:learn_dart/core/helper/syntax_helper.dart';
+import 'package:learn_dart/core/helper/ui_style.dart';
+import 'package:learn_dart/core/theme/dark_theme.dart';
+import 'package:learn_dart/core/theme/light_theme.dart';
 import 'package:learn_dart/provider/leadershiprovider.dart';
+import 'package:learn_dart/ui/main_screen.dart';
 import 'package:provider/provider.dart';
-//
+import 'firebase_options.dart';
 
-void main() {
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => LeadershipProvider()),
-      ],
-      child: MyApp(),
-    ),
-  );
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  setUIStyle();
+  SyntaxHelper.initHighlighter();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -21,18 +22,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue,
-          primary: Colors.lightBlue,
-          secondary: Colors.red,
-          tertiary: Colors.amber,
-        ),
-        textTheme: GoogleFonts.poppinsTextTheme(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context)=> LeadershipProvider())
+      ],
+      child: MaterialApp(
+        theme: lightTheme(),
+        darkTheme: darkTheme(),
+        themeMode: ThemeMode.system,
+        home: const MainScreen(),
       ),
-      home: const MainScreen(),
     );
   }
 }

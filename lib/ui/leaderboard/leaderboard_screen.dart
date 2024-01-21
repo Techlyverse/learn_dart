@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'model/leadership.dart';
-import 'provider/leadershiprovider.dart';
+import '../../model/leadership.dart';
+import '../../provider/leadershiprovider.dart';
 
 class LeaderboardScreen extends StatefulWidget {
   const LeaderboardScreen({super.key});
@@ -105,10 +104,10 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
 
                     final leader = leaders[index];
                     return Card(
-                      color: leader.position == 1
-                          ? Colors.amberAccent
-                          : Colors.white,
                       child: ListTile(
+                        tileColor: leader.position == 1
+                            ? Colors.amberAccent
+                            : Colors.white, //null,
                         leading: Image.asset(
                           leader.imageAsset,
                           width: 50,
