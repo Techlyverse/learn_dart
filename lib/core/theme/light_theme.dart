@@ -34,8 +34,15 @@ ThemeData lightTheme() {
     navigationBarTheme: NavigationBarThemeData(
       elevation: 0,
       labelTextStyle: MaterialStatePropertyAll(GoogleFonts.bubblegumSans()),
-      backgroundColor: lightColorScheme.secondaryContainer,
+      backgroundColor: lightColorScheme.tertiaryContainer,
       indicatorColor: lightColorScheme.primary,
+    ),
+    listTileTheme: ListTileThemeData(
+
+      tileColor: lightColorScheme.tertiaryContainer,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
     ),
   );
 }

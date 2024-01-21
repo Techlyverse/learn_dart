@@ -104,10 +104,10 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
 
                     final leader = leaders[index];
                     return Card(
-                      color: leader.position == 1
-                          ? Colors.amberAccent
-                          : Colors.white,
                       child: ListTile(
+                        tileColor: leader.position == 1
+                            ? Colors.amberAccent
+                            : Colors.white, //null,
                         leading: Image.asset(
                           leader.imageAsset,
                           width: 50,

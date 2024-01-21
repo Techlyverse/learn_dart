@@ -13,6 +13,9 @@ class _QuizScreenState extends State<QuizScreen> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        AppBar(
+          title: Text("Some heading"),
+        ),
         Container(
           height: 200,
           width: double.maxFinite,
@@ -32,7 +35,7 @@ class _QuizScreenState extends State<QuizScreen> {
               image: const DecorationImage(
                 image: AssetImage("assets/blue.jpg"),
                 fit: BoxFit.cover,
-                filterQuality: FilterQuality.none,
+                //filterQuality: FilterQuality.none,
               )),
 
           child: Text(
@@ -62,7 +65,7 @@ class _QuizScreenState extends State<QuizScreen> {
               image: const DecorationImage(
                 image: AssetImage("assets/pink.jpg"),
                 fit: BoxFit.cover,
-                filterQuality: FilterQuality.none,
+                // filterQuality: FilterQuality.none,
               )),
 
           child: Text(
