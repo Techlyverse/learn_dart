@@ -5,7 +5,6 @@ import 'package:learn_dart/core/helper/ui_style.dart';
 import 'package:learn_dart/core/theme/dark_theme.dart';
 import 'package:learn_dart/core/theme/light_theme.dart';
 import 'package:learn_dart/provider/leadershiprovider.dart';
-import 'package:learn_dart/test.dart';
 import 'package:learn_dart/ui/main_screen.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
@@ -31,7 +30,7 @@ class MyApp extends StatelessWidget {
         theme: lightTheme(),
         darkTheme: darkTheme(),
         themeMode: ThemeMode.system,
-        home: const Test()//MainScreen(),
+        home: const MainScreen(),
       ),
     );
   }
