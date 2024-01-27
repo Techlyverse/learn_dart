@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:learn_dart/ui/game/game.dart';
 
+import 'quizquestions.dart';
+
 class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
 
@@ -18,8 +20,9 @@ class _QuizScreenState extends State<QuizScreen> {
           title: Text("Some heading"),
         ),
         InkWell(
-          onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> const GameScreen()));
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const GameScreen()));
           },
           child: Container(
             height: 200,
@@ -53,33 +56,39 @@ class _QuizScreenState extends State<QuizScreen> {
             ),
           ),
         ),
-        Container(
-          height: 200,
-          width: double.maxFinite,
-          margin: const EdgeInsets.all(12),
-          //padding: const EdgeInsets.all(12),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              // gradient: const LinearGradient(
-              //   begin: Alignment.topLeft,
-              //   end: Alignment.bottomRight,
-              //   colors: [
-              //     Colors.blueAccent,
-              //     Colors.lightBlueAccent,
-              //   ],
-              // ),
-              image: const DecorationImage(
-                image: AssetImage("assets/pink.jpg"),
-                fit: BoxFit.cover,
-                // filterQuality: FilterQuality.none,
-              )),
+        InkWell(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => QuizQuestion()));
+          },
+          child: Container(
+            height: 200,
+            width: double.maxFinite,
+            margin: const EdgeInsets.all(12),
+            //padding: const EdgeInsets.all(12),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                // gradient: const LinearGradient(
+                //   begin: Alignment.topLeft,
+                //   end: Alignment.bottomRight,
+                //   colors: [
+                //     Colors.blueAccent,
+                //     Colors.lightBlueAccent,
+                //   ],
+                // ),
+                image: const DecorationImage(
+                  image: AssetImage("assets/pink.jpg"),
+                  fit: BoxFit.cover,
+                  // filterQuality: FilterQuality.none,
+                )),
 
-          child: Text(
-            "Quiz",
-            style: GoogleFonts.gluten(
-              fontSize: 45,
-              color: Colors.grey.shade900,
+            child: Text(
+              "Quiz",
+              style: GoogleFonts.gluten(
+                fontSize: 45,
+                color: Colors.grey.shade900,
+              ),
             ),
           ),
         ),

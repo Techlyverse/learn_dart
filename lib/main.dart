@@ -5,6 +5,7 @@ import 'package:learn_dart/core/helper/ui_style.dart';
 import 'package:learn_dart/core/theme/dark_theme.dart';
 import 'package:learn_dart/core/theme/light_theme.dart';
 import 'package:learn_dart/provider/leadershiprovider.dart';
+import 'package:learn_dart/provider/quizprovider.dart';
 import 'package:learn_dart/ui/main_screen.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context)=> LeadershipProvider())
+        ChangeNotifierProvider(create: (context) => LeadershipProvider()),
+        ChangeNotifierProvider(create: (context) => QuizProvider())
       ],
       child: MaterialApp(
         theme: lightTheme(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_dart/core/theme/color_scheme.dart';
 import 'package:provider/provider.dart';
 import '../../model/leadership.dart';
 import '../../provider/leadershiprovider.dart';
@@ -107,7 +108,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                       child: ListTile(
                         tileColor: leader.position == 1
                             ? Colors.amberAccent
-                            : Colors.white, //null,
+                            : index%2 == 0 ? lightColorScheme.secondaryContainer : lightColorScheme.primaryContainer,
                         leading: Image.asset(
                           leader.imageAsset,
                           width: 50,
