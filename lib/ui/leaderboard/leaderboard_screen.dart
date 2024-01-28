@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_dart/core/theme/color_scheme.dart';
 import 'package:provider/provider.dart';
@@ -12,58 +13,36 @@ class LeaderboardScreen extends StatefulWidget {
 }
 
 class _LeaderboardScreenState extends State<LeaderboardScreen> {
-  final ScrollController scrollController = ScrollController();
-  bool loadingMore = false;
-  TextEditingController searchController = TextEditingController();
+
+  late LeadershipProvider leadershipProvider;
 
   @override
   void initState() {
     super.initState();
-    scrollController.addListener(_scrollListener);
+    leadershipProvider = Provider.of<LeadershipProvider>(context);
+    leadershipProvider.initState();
   }
 
   @override
   void dispose() {
-    scrollController.dispose();
-    searchController.dispose();
+    leadershipProvider.dispose();
     super.dispose();
   }
 
-  void _scrollListener() {
-    if (scrollController.offset >= scrollController.position.maxScrollExtent &&
-        !scrollController.position.outOfRange) {
-      if (!loadingMore) {
-        setState(() {
-          loadingMore = true;
-        });
 
-        Provider.of<LeadershipProvider>(context, listen: false)
-            .loadMoreLeaders();
 
-        setState(() {
-          loadingMore = false;
-        });
-      }
-    }
-  }
 
-  List<Leader> searchLeaders(List<Leader> leaders, String query) {
-    return leaders
-        .where(
-            (leader) => leader.name.toLowerCase().contains(query.toLowerCase()))
-        .toList();
-  }
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
-        title: Text("Leaderboard"),
+        title: const Text("Leaderboard"),
       ),
       body: Consumer<LeadershipProvider>(
         builder: (context, leadershipProvider, child) {
-          final leaders =
-              searchLeaders(leadershipProvider.leaders, searchController.text);
+          final leaders = leadershipProvider.searchLeaders(leadershipProvider.leaders, leadershipProvider.searchController.text);
           print("the ${leaders.length}");
 
           return Column(
@@ -71,18 +50,16 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
-                  controller: searchController,
-                  onChanged: (value) {
-                    setState(() {});
-                  },
+                  controller: leadershipProvider.searchController,
+
                   decoration: InputDecoration(
                     labelText: 'Search by Name',
-                    suffixIcon: searchController.text.isNotEmpty
+                    suffixIcon: leadershipProvider.searchController.text.isNotEmpty
                         ? IconButton(
-                            icon: Icon(Icons.clear),
+                            icon: const Icon(Icons.clear),
                             onPressed: () {
-                              setState(() {});
-                              searchController.clear();
+
+                              leadershipProvider.searchController.clear();
                             },
                           )
                         : null,
@@ -91,24 +68,17 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
               ),
               Expanded(
                 child: ListView.builder(
-                  controller: scrollController,
+                  controller: leadershipProvider.scrollController,
                   itemCount: leaders.length,
                   itemBuilder: (context, index) {
-                    if (index == leaders.length) {
-                      return loadingMore
-                          ? const SizedBox(
-                              height: 50,
-                              child: Center(child: CircularProgressIndicator()),
-                            )
-                          : SizedBox();
-                    }
-
                     final leader = leaders[index];
                     return Card(
                       child: ListTile(
                         tileColor: leader.position == 1
                             ? Colors.amberAccent
-                            : index%2 == 0 ? lightColorScheme.secondaryContainer : lightColorScheme.primaryContainer,
+                            : index % 2 == 0
+                                ? lightColorScheme.secondaryContainer
+                                : lightColorScheme.primaryContainer,
                         leading: Image.asset(
                           leader.imageAsset,
                           width: 50,
@@ -116,15 +86,20 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                           fit: BoxFit.cover,
                         ),
                         title: Text(leader.name),
-                        subtitle: Text("QUIZ ABCD"),
+                        subtitle: const Text("QUIZ ABCD"),
                         trailing: leader.position == 1
                             ? Image.asset("assets/images/crown.png")
-                            : SizedBox(),
+                            : const SizedBox(),
                       ),
                     );
                   },
                 ),
               ),
+              if (leadershipProvider.loadingMore)
+                const Padding(
+                  padding: EdgeInsets.all(30.0),
+                  child: CupertinoActivityIndicator(),
+                ),
             ],
           );
         },

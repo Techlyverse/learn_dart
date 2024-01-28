@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class CustomBottomBar extends StatelessWidget {
@@ -41,9 +40,9 @@ class CustomBottomBar extends StatelessWidget {
               ),
               title != null
                   ? Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                child: Text(title!),
-              )
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      child: Text(title!),
+                    )
                   : const SizedBox(),
               SizedBox(height: title != null ? 20 : 0),
               child,

@@ -16,12 +16,12 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final currentUser = FirebaseAuth.instance.currentUser;
   static const List<Widget> pages = [
-    HomeScreen(),
+    QuizScreen(),
     ExampleScreen(),
     LeaderboardScreen(),
-    QuizScreen(),
+    HomeScreen(),
   ];
-  int currentPage = 3;
+  int currentPage = 0;
 
   @override
   Widget build(BuildContext context) {

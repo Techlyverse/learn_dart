@@ -11,53 +11,6 @@ class QuizQuestion extends StatefulWidget {
 }
 
 class _QuizQuestionState extends State<QuizQuestion> {
-  // int mainIndex = 0;
-  // String? selectedAnswer;
-
-  // SwiperController swiperController = SwiperController();
-
-  // List<Map<String, dynamic>> questions = [
-  //   {
-  //     'question': 'What is the capital of France?',
-  //     'options': ['Berlin', 'Madrid', 'Paris', 'Rome'],
-  //     'correctAnswer': 'Paris',
-  //   },
-  //   {
-  //     'question': 'Which programming language is Flutter built with?',
-  //     'options': ['Dart', 'Java', 'Python', 'Swift'],
-  //     'correctAnswer': 'Dart',
-  //   },
-  //   {
-  //     'question': 'Which programming language is Flutter built with?',
-  //     'options': ['Dart', 'Java', 'Python', 'Swift'],
-  //     'correctAnswer': 'Dart',
-  //   },
-  //   {
-  //     'question': 'Which programming language is Flutter built with?',
-  //     'options': ['Dart', 'Java', 'Python', 'Swift'],
-  //     'correctAnswer': 'Dart',
-  //   },
-  // ];
-
-  // void checkAnswer(Map<String, dynamic> question) {
-  //   if (selectedAnswer == question['correctAnswer']) {
-  //     print('Correct!');
-  //   } else {
-  //     print('Incorrect!');
-  //   }
-
-  //   // Move to the next question
-  //   setState(() {
-  //     selectedAnswer = null;
-  //     if (mainIndex < questions.length - 1) {
-  //       mainIndex++;
-  //       swiperController.next();
-  //     } else {
-  //       print('Quiz completed!');
-  //     }
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     QuizProvider quizProvider = Provider.of<QuizProvider>(context);
@@ -65,7 +18,7 @@ class _QuizQuestionState extends State<QuizQuestion> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Quiz"),
+        title: const Text("My Quiz"),
       ),
       body: Column(
         children: [
@@ -77,7 +30,7 @@ class _QuizQuestionState extends State<QuizQuestion> {
                 return buildQuestion(quizProvider.questions[index]);
               },
               itemCount: quizProvider.questions.length,
-              viewportFraction: 0.8,
+              viewportFraction:0.8,
               scale: 0.9,
               onIndexChanged: (index) {
                 quizProvider.updateMainIndex(index);
@@ -89,30 +42,27 @@ class _QuizQuestionState extends State<QuizQuestion> {
               },
             ),
           ),
+
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.fromLTRB(20, 10, 20, 50),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: colorScheme.primary,
-                      foregroundColor: colorScheme.onPrimary),
+
                   onPressed: quizProvider.isBack()
                       ? () {
                           quizProvider.goBack();
                         }
                       : null,
-                  child: Text("Previous"),
+                  child: const Text("Previous"),
                 ),
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: colorScheme.primary,
-                      foregroundColor: colorScheme.onPrimary),
+
                   onPressed: () {
                     quizProvider.checkAnswer();
                   },
-                  child: Text("Next"),
+                  child: const Text("Next"),
                 ),
               ],
             ),
@@ -132,9 +82,9 @@ class _QuizQuestionState extends State<QuizQuestion> {
       children: [
         Text(
           question['question'],
-          style: TextStyle(fontSize: 20),
+          style: const TextStyle(fontSize: 20),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Column(
           children: List.generate(
             question['options'].length,

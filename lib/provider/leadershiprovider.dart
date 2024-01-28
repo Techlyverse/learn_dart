@@ -2,6 +2,47 @@ import 'package:flutter/material.dart';
 import 'package:learn_dart/model/leadership.dart';
 
 class LeadershipProvider with ChangeNotifier {
+  final ScrollController scrollController = ScrollController();
+  TextEditingController searchController = TextEditingController();
+  bool loadingMore = false;
+
+  void _scrollListener() {
+    if (scrollController.offset >= scrollController.position.maxScrollExtent &&
+        !scrollController.position.outOfRange) {
+      loadingMore = true;
+      notifyListeners();
+
+      loadMoreLeaders();
+    } else {
+      loadingMore = false;
+      notifyListeners();
+    }
+  }
+
+
+
+
+
+  void initState() {
+    scrollController.addListener(_scrollListener);
+  }
+
+  void disposeState() {
+    scrollController.dispose();
+    searchController.dispose();
+  }
+
+  List<Leader> searchLeaders(List<Leader> leaders, String query) {
+    List<Leader> listLeaders = leaders
+        .where((leader) => leader.name.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+    notifyListeners();
+    return listLeaders;
+  }
+
+
+
+
   final List<Leader> person = [
     Leader('Dhiren ', 1, 'assets/images/male.png'),
     Leader('Raghav Shuktla ', 2, 'assets/images/male.png'),

@@ -1,8 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:learn_dart/core/helper/syntax_helper.dart';
-import 'package:syntax_highlight/syntax_highlight.dart';
-
 import 'home/feed_screen.dart';
 
 class ExampleScreen extends StatefulWidget {

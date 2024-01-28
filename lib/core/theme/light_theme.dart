@@ -21,6 +21,17 @@ ThemeData lightTheme() {
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
     ),
+
+
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: lightColorScheme.primary,
+        foregroundColor: lightColorScheme.onPrimary,
+      ),
+
+    ),
+
+
     inputDecorationTheme: InputDecorationTheme(
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12.0),
@@ -33,7 +44,7 @@ ThemeData lightTheme() {
     // ),
     navigationBarTheme: NavigationBarThemeData(
       elevation: 0,
-      labelTextStyle: MaterialStatePropertyAll(GoogleFonts.bubblegumSans()),
+      labelTextStyle: MaterialStatePropertyAll(GoogleFonts.gluten()),
       backgroundColor: lightColorScheme.tertiaryContainer,
       indicatorColor: lightColorScheme.primary,
     ),
