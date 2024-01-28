@@ -19,10 +19,6 @@ class LeadershipProvider with ChangeNotifier {
     }
   }
 
-
-
-
-
   void initState() {
     scrollController.addListener(_scrollListener);
   }
@@ -33,15 +29,11 @@ class LeadershipProvider with ChangeNotifier {
   }
 
   List<Leader> searchLeaders(List<Leader> leaders, String query) {
-    List<Leader> listLeaders = leaders
-        .where((leader) => leader.name.toLowerCase().contains(query.toLowerCase()))
+    return leaders
+        .where(
+            (leader) => leader.name.toLowerCase().contains(query.toLowerCase()))
         .toList();
-    notifyListeners();
-    return listLeaders;
   }
-
-
-
 
   final List<Leader> person = [
     Leader('Dhiren ', 1, 'assets/images/male.png'),

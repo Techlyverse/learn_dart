@@ -13,36 +13,29 @@ class LeaderboardScreen extends StatefulWidget {
 }
 
 class _LeaderboardScreenState extends State<LeaderboardScreen> {
-
-  late LeadershipProvider leadershipProvider;
-
   @override
   void initState() {
     super.initState();
-    leadershipProvider = Provider.of<LeadershipProvider>(context);
-    leadershipProvider.initState();
+    context.read<LeadershipProvider>().initState();
   }
 
   @override
   void dispose() {
-    leadershipProvider.dispose();
+    context.read<LeadershipProvider>().dispose();
     super.dispose();
   }
 
-
-
-
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("Leaderboard"),
       ),
       body: Consumer<LeadershipProvider>(
         builder: (context, leadershipProvider, child) {
-          final leaders = leadershipProvider.searchLeaders(leadershipProvider.leaders, leadershipProvider.searchController.text);
+          final leaders = leadershipProvider.searchLeaders(
+              leadershipProvider.leaders,
+              leadershipProvider.searchController.text);
           print("the ${leaders.length}");
 
           return Column(
@@ -51,18 +44,17 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
                   controller: leadershipProvider.searchController,
-
                   decoration: InputDecoration(
                     labelText: 'Search by Name',
-                    suffixIcon: leadershipProvider.searchController.text.isNotEmpty
-                        ? IconButton(
-                            icon: const Icon(Icons.clear),
-                            onPressed: () {
-
-                              leadershipProvider.searchController.clear();
-                            },
-                          )
-                        : null,
+                    suffixIcon:
+                        leadershipProvider.searchController.text.isNotEmpty
+                            ? IconButton(
+                                icon: const Icon(Icons.clear),
+                                onPressed: () {
+                                  leadershipProvider.searchController.clear();
+                                },
+                              )
+                            : null,
                   ),
                 ),
               ),
