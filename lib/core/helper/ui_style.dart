@@ -6,6 +6,7 @@ void setUIStyle() {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+
   SystemChrome.setEnabledSystemUIMode(
     SystemUiMode.edgeToEdge,
     overlays: [
@@ -13,6 +14,7 @@ void setUIStyle() {
       SystemUiOverlay.bottom,
     ],
   );
+
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,

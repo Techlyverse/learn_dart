@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:learn_dart/provider/quizprovider.dart';
 import 'package:provider/provider.dart';
 
-class QuizQuestion extends StatefulWidget {
-  const QuizQuestion({Key? key}) : super(key: key);
+class QuizScreen extends StatefulWidget {
+  const QuizScreen({Key? key}) : super(key: key);
 
   @override
-  State<QuizQuestion> createState() => _QuizQuestionState();
+  State<QuizScreen> createState() => _QuizScreenState();
 }
 
-class _QuizQuestionState extends State<QuizQuestion> {
+class _QuizScreenState extends State<QuizScreen> {
   @override
   Widget build(BuildContext context) {
     QuizProvider quizProvider = Provider.of<QuizProvider>(context);
@@ -30,7 +30,7 @@ class _QuizQuestionState extends State<QuizQuestion> {
                 return buildQuestion(quizProvider.questions[index]);
               },
               itemCount: quizProvider.questions.length,
-              viewportFraction:0.8,
+              viewportFraction: 0.8,
               scale: 0.9,
               onIndexChanged: (index) {
                 quizProvider.updateMainIndex(index);
@@ -42,14 +42,12 @@ class _QuizQuestionState extends State<QuizQuestion> {
               },
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 10, 20, 50),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
-
                   onPressed: quizProvider.isBack()
                       ? () {
                           quizProvider.goBack();
@@ -58,7 +56,6 @@ class _QuizQuestionState extends State<QuizQuestion> {
                   child: const Text("Previous"),
                 ),
                 ElevatedButton(
-
                   onPressed: () {
                     quizProvider.checkAnswer();
                   },

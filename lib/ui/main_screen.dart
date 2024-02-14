@@ -1,78 +1,59 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:learn_dart/ui/example_screen.dart';
-import 'package:learn_dart/ui/game/game.dart';
-import 'package:learn_dart/ui/home/home_screen.dart';
-import 'package:learn_dart/ui/leaderboard/leaderboard_screen.dart';
-import 'package:learn_dart/ui/quiz/quiz_screen.dart';
+import 'package:provider/provider.dart';
+import '../provider/app_provider.dart';
 
-class MainScreen extends StatefulWidget {
+class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
-
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  final currentUser = FirebaseAuth.instance.currentUser;
-  static const List<Widget> pages = [
-    QuizScreen(),
-    ExampleScreen(),
-    LeaderboardScreen(),
-    HomeScreen(),
-  ];
-  int currentPage = 0;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){FocusScope.of(context).unfocus();},
-      child: Scaffold(
-
-        body: pages[currentPage],
-        bottomNavigationBar: NavigationBar(
-          selectedIndex: currentPage,
-          onDestinationSelected: (value) {
-            setState(() {
-              currentPage = value;
-            });
-          },
-          destinations: const [
-            NavigationDestination(
-              icon: Icon(Icons.home_outlined),
-              selectedIcon: Icon(
-                Icons.home,
-                color: Colors.white,
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Consumer<AppProvider>(builder: (context, provider, child) {
+        return Scaffold(
+          body: provider.currentPage,
+          bottomNavigationBar: NavigationBar(
+            selectedIndex: provider.currentIndex,
+            onDestinationSelected: provider.updatePage,
+            destinations: const [
+              NavigationDestination(
+                icon: Icon(Icons.home_outlined),
+                selectedIcon: Icon(
+                  Icons.home,
+                  color: Colors.white,
+                ),
+                label: "Home",
               ),
-              label: "Home",
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.my_library_books_outlined),
-              selectedIcon: Icon(
-                Icons.my_library_books,
-                color: Colors.white,
+              NavigationDestination(
+                icon: Icon(Icons.my_library_books_outlined),
+                selectedIcon: Icon(
+                  Icons.my_library_books,
+                  color: Colors.white,
+                ),
+                label: "Example",
               ),
-              label: "Example",
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.leaderboard_outlined),
-              selectedIcon: Icon(
-                Icons.leaderboard,
-                color: Colors.white,
+              NavigationDestination(
+                icon: Icon(Icons.leaderboard_outlined),
+                selectedIcon: Icon(
+                  Icons.leaderboard,
+                  color: Colors.white,
+                ),
+                label: "Rank",
               ),
-              label: "Rank",
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.sports_esports_outlined),
-              selectedIcon: Icon(
-                Icons.sports_esports,
-                color: Colors.white,
+              NavigationDestination(
+                icon: Icon(Icons.sports_esports_outlined),
+                selectedIcon: Icon(
+                  Icons.sports_esports,
+                  color: Colors.white,
+                ),
+                label: "Play",
               ),
-              label: "Game",
-            ),
-          ],
-        ),
-      ),
+            ],
+          ),
+        );
+      }),
     );
   }
 }

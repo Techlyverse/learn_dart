@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../widgets/custom_bottomsheet.dart';
+import '../shared/custom_bottomsheet.dart';
 
 void openBottomBar({
   required BuildContext context,
@@ -17,4 +16,3 @@ void openBottomBar({
     ),
   );
 }
-

@@ -3,5 +3,9 @@ class Leader {
   final int position;
   final String imageAsset;
 
-  Leader(this.name, this.position, this.imageAsset);
+  const Leader(
+    this.name,
+    this.position,
+    this.imageAsset,
+  );
 }

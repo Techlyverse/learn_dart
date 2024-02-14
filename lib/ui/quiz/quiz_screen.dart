@@ -4,25 +4,27 @@ import 'package:learn_dart/ui/game/game.dart';
 
 import 'quizquestions.dart';
 
-class QuizScreen extends StatefulWidget {
-  const QuizScreen({super.key});
+class PlayScreen extends StatefulWidget {
+  const PlayScreen({super.key});
 
   @override
-  State<QuizScreen> createState() => _QuizScreenState();
+  State<PlayScreen> createState() => _PlayScreenState();
 }
 
-class _QuizScreenState extends State<QuizScreen> {
+class _PlayScreenState extends State<PlayScreen> {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         AppBar(
-          title: Text("Some heading"),
+          title: const Text("Play"),
         ),
         InkWell(
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const GameScreen()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const PlayGroundScreen()));
           },
           child: Container(
             height: 200,
@@ -48,10 +50,10 @@ class _QuizScreenState extends State<QuizScreen> {
             ),
 
             child: Text(
-              "Game",
+              "Playground",
               style: GoogleFonts.gluten(
-                fontSize: 45,
-                color: Colors.grey.shade900,
+                fontSize: 30,
+                color: Colors.grey.shade800,
               ),
             ),
           ),
@@ -59,7 +61,7 @@ class _QuizScreenState extends State<QuizScreen> {
         InkWell(
           onTap: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => QuizQuestion()));
+                MaterialPageRoute(builder: (context) => const QuizScreen()));
           },
           child: Container(
             height: 200,
@@ -86,8 +88,8 @@ class _QuizScreenState extends State<QuizScreen> {
             child: Text(
               "Quiz",
               style: GoogleFonts.gluten(
-                fontSize: 45,
-                color: Colors.grey.shade900,
+                fontSize: 30,
+                color: Colors.grey.shade800,
               ),
             ),
           ),

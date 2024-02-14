@@ -2,8 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_dart/core/theme/color_scheme.dart';
 import 'package:provider/provider.dart';
-import '../../model/leadership.dart';
-import '../../provider/leadershiprovider.dart';
+import '../../provider/leaderboard_provider.dart';
 
 class LeaderboardScreen extends StatefulWidget {
   const LeaderboardScreen({super.key});
@@ -13,15 +12,18 @@ class LeaderboardScreen extends StatefulWidget {
 }
 
 class _LeaderboardScreenState extends State<LeaderboardScreen> {
+  final ScrollController scrollController = ScrollController();
+  final TextEditingController searchController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
-    context.read<LeadershipProvider>().initState();
+    context.read<LeaderboardProvider>().initializeState();
   }
 
   @override
   void dispose() {
-    context.read<LeadershipProvider>().dispose();
+    context.read<LeaderboardProvider>().dispose();
     super.dispose();
   }
 
@@ -31,19 +33,18 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
       appBar: AppBar(
         title: const Text("Leaderboard"),
       ),
-      body: Consumer<LeadershipProvider>(
+      body: Consumer<LeaderboardProvider>(
         builder: (context, leadershipProvider, child) {
-          final leaders = leadershipProvider.searchLeaders(
-              leadershipProvider.leaders,
-              leadershipProvider.searchController.text);
-          print("the ${leaders.length}");
-
           return Column(
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
                   controller: leadershipProvider.searchController,
+                  onTap: () {
+                    leadershipProvider.searchLeaders();
+                    setState(() {});
+                  },
                   decoration: InputDecoration(
                     labelText: 'Search by Name',
                     suffixIcon:
@@ -51,7 +52,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                             ? IconButton(
                                 icon: const Icon(Icons.clear),
                                 onPressed: () {
-                                  leadershipProvider.searchController.clear();
+                                  leadershipProvider.clearSearch();
                                 },
                               )
                             : null,
@@ -61,9 +62,9 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
               Expanded(
                 child: ListView.builder(
                   controller: leadershipProvider.scrollController,
-                  itemCount: leaders.length,
+                  itemCount: leadershipProvider.getLeaders.length,
                   itemBuilder: (context, index) {
-                    final leader = leaders[index];
+                    final leader = leadershipProvider.getLeaders[index];
                     return Card(
                       child: ListTile(
                         tileColor: leader.position == 1
