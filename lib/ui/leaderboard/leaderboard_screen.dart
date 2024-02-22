@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:learn_dart/core/theme/color_scheme.dart';
+import 'package:learn_dart/theme/color_scheme.dart';
 import 'package:provider/provider.dart';
 import '../../provider/leaderboard_provider.dart';
 

@@ -18,7 +18,7 @@ class FeedTile extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => DescriptionScreen(snapshot: snapshot)));
+                builder: (context) => DescriptionScreen(program: snapshot)));
       },
       leading: CircleAvatar(
         child: Text("$index"),

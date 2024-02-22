@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:learn_dart/core/data/list_provider.dart';
-import 'package:learn_dart/core/theme/dark_theme.dart';
-import 'package:learn_dart/core/theme/light_theme.dart';
+import 'package:learn_dart/data/provider_list.dart';
+import 'package:learn_dart/theme/dark_theme.dart';
+import 'package:learn_dart/theme/light_theme.dart';
 import 'package:learn_dart/ui/main_screen.dart';
 import 'package:provider/provider.dart';
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
