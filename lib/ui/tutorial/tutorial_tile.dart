@@ -1,10 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:learn_dart/ui/home/description_screen.dart';
+import 'package:learn_dart/model/tutorial_model.dart';
+import 'package:learn_dart/widgets/code_viewer.dart';
 
-class FeedTile extends StatelessWidget {
-  const FeedTile({super.key, required this.snapshot, required this.index});
-  final DocumentSnapshot snapshot;
+class TutorialTile extends StatelessWidget {
+  const TutorialTile({super.key, required this.tutorial, required this.index});
+  final TutorialModel tutorial;
   final int index;
 
   @override
@@ -18,12 +18,12 @@ class FeedTile extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => DescriptionScreen(program: snapshot)));
+                builder: (context) => CodeViewer(program: tutorial.program)));
       },
       leading: CircleAvatar(
         child: Text("$index"),
       ),
-      title: Text(snapshot['title']),
+      title: Text(tutorial.title),
     );
   }
 }

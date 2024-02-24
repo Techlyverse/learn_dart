@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'home/feed_screen.dart';
+import '../tutorial/tutorial_feed.dart';
 
-class ExampleScreen extends StatefulWidget {
-  const ExampleScreen({super.key});
+class ExampleTab extends StatefulWidget {
+  const ExampleTab({super.key});
 
   @override
-  State<ExampleScreen> createState() => _ExampleScreenState();
+  State<ExampleTab> createState() => _ExampleTabState();
 }
 
-class _ExampleScreenState extends State<ExampleScreen> {
+class _ExampleTabState extends State<ExampleTab> {
   int selectedTopicIndex = 0;
 
   @override

@@ -4,14 +4,14 @@ import 'package:learn_dart/ui/game/game.dart';
 
 import 'quizquestions.dart';
 
-class PlayScreen extends StatefulWidget {
-  const PlayScreen({super.key});
+class PlaygroundTab extends StatefulWidget {
+  const PlaygroundTab({super.key});
 
   @override
-  State<PlayScreen> createState() => _PlayScreenState();
+  State<PlaygroundTab> createState() => _PlaygroundTabState();
 }
 
-class _PlayScreenState extends State<PlayScreen> {
+class _PlaygroundTabState extends State<PlaygroundTab> {
   @override
   Widget build(BuildContext context) {
     return Column(

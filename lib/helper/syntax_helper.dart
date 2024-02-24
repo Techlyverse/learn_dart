@@ -3,23 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:syntax_highlight/syntax_highlight.dart';
 
 class SyntaxHelper {
+  static final _formatter = DartFormatter();
+  static const String _language = 'dart';
+
   static Future<void> initHighlighter() async {
-    // Initialize the highlighter.
-    await Highlighter.initialize(['dart', 'yaml', 'sql']);
+    await Highlighter.initialize(['dart', 'yaml']); //'sql'
   }
 
   static Future<InlineSpan> getHighlighter(bool isDarkMode, String code) async {
-    final formatter = DartFormatter();
-    const String language = 'dart';
-
     final Highlighter highlighter = Highlighter(
-      language: language,
+      language: _language,
       theme: isDarkMode
           ? await HighlighterTheme.loadDarkTheme()
           : await HighlighterTheme.loadLightTheme(),
     );
 
-    String formattedCode = formatter.format(code);
+    String formattedCode = _formatter.format(code);
     return highlighter.highlight(formattedCode);
   }
 }

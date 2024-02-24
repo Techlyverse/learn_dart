@@ -1,15 +1,15 @@
 import 'package:flutter/widgets.dart';
-import '../ui/example_screen.dart';
-import '../ui/home/home_screen.dart';
-import '../ui/leaderboard/leaderboard_screen.dart';
-import '../ui/quiz/quiz_screen.dart';
+import '../ui/dashboard/dashboard_tab.dart';
+import '../ui/example/example_tab.dart';
+import '../ui/playground/playground_tab.dart';
+import '../ui/tutorial/tutorial_tab.dart';
 
 class AppProvider extends ChangeNotifier {
   static const List<Widget> pages = [
-    HomeScreen(),
-    ExampleScreen(),
-    LeaderboardScreen(),
-    PlayScreen(),
+    TutorialTab(),
+    ExampleTab(),
+    DashboardTab(),
+    PlaygroundTab(),
   ];
 
   int currentIndex = 3;

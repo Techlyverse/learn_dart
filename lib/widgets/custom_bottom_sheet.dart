@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomBottomBar extends StatelessWidget {
-  const CustomBottomBar({super.key, required this.child, this.title});
+class CustomBottomSheet extends StatelessWidget {
+  const CustomBottomSheet({super.key, required this.child, this.title});
   final Widget child;
   final String? title;
 

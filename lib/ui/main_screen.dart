@@ -32,7 +32,7 @@ class MainScreen extends StatelessWidget {
                   Icons.my_library_books,
                   color: Colors.white,
                 ),
-                label: "Example",
+                label: "Examples",
               ),
               NavigationDestination(
                 icon: Icon(Icons.leaderboard_outlined),

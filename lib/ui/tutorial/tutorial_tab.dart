@@ -1,16 +1,13 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:learn_dart/ui/home/carousel.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class TutorialTab extends StatefulWidget {
+  const TutorialTab({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<TutorialTab> createState() => _TutorialTabState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _TutorialTabState extends State<TutorialTab> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;

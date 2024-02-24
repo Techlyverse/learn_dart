@@ -1,10 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:learn_dart/ui/home/feed_tile.dart';
+import 'package:learn_dart/model/tutorial_model.dart';
+import 'tutorial_tile.dart';
 
-class FeedScreen extends StatelessWidget {
-  const FeedScreen({super.key, required this.snapshot});
-  final QuerySnapshot snapshot;
+class TutorialFeed extends StatelessWidget {
+  const TutorialFeed({super.key, required this.tutorials});
+  final List<TutorialModel> tutorials;
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +15,12 @@ class FeedScreen extends StatelessWidget {
         ),
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
-        itemCount: snapshot.docs.length,
+        itemCount: tutorials.length,
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         itemBuilder: (_, index) {
-          return FeedTile(
+          return TutorialTile(
             key: Key(index.toString()),
-            snapshot: snapshot.docs[index],
+            tutorial: tutorials[index],
             index: index,
           );
         },

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../helper/syntax_helper.dart';
 
-class DescriptionScreen extends StatelessWidget {
-  const DescriptionScreen({super.key, required this.program});
+class CodeViewer extends StatelessWidget {
+  const CodeViewer({super.key, required this.program});
   final String program;
 
   @override

@@ -1,11 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
-class LifecycleEventHandler extends WidgetsBindingObserver {
+class LifecycleHandler extends WidgetsBindingObserver {
   final AsyncCallback? resumeCallBack;
   final AsyncCallback? suspendingCallBack;
 
-  LifecycleEventHandler({
+  LifecycleHandler({
     required this.resumeCallBack,
     required this.suspendingCallBack,
   });
