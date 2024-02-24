@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:learn_dart/model/tutorial_model.dart';
 import '../../data/example_list.dart';
 import 'example_tile.dart';
 

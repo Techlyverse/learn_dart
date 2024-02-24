@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_dart/model/example_model.dart';
-import 'package:learn_dart/model/tutorial_model.dart';
-import 'package:learn_dart/widgets/code_viewer.dart';
+import 'package:learn_dart/ui/example/example_screen.dart';
 
 class ExampleTile extends StatelessWidget {
   const ExampleTile({super.key, required this.example, required this.index});
@@ -19,7 +18,7 @@ class ExampleTile extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => CodeViewer(program: example.program)));
+                builder: (context) => ExampleScreen(example:example)));
       },
       leading: CircleAvatar(
         child: Text("$index"),
