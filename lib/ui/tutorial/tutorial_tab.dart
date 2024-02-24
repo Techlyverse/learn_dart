@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
-class TutorialTab extends StatefulWidget {
+class TutorialTab extends StatelessWidget {
   const TutorialTab({super.key});
 
-  @override
-  State<TutorialTab> createState() => _TutorialTabState();
-}
-
-class _TutorialTabState extends State<TutorialTab> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -17,10 +12,6 @@ class _TutorialTabState extends State<TutorialTab> {
       child: Column(
         children: [
           AppBar(
-            leading: const Padding(
-              padding: EdgeInsets.all(6.0),
-              child: CircleAvatar(),
-            ),
             title: const Text("Welcome"),
             actions: [
               IconButton(
@@ -32,6 +23,15 @@ class _TutorialTabState extends State<TutorialTab> {
                 icon: const Icon(Icons.settings_outlined),
               ),
             ],
+          ),
+          const SizedBox(height: 20),
+          Container(
+            height: 200,
+            width: double.maxFinite,
+            decoration: BoxDecoration(
+              color: colorScheme.primaryContainer,
+              borderRadius: BorderRadius.circular(12),
+            ),
           ),
         ],
       ),

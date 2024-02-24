@@ -1,9 +1,9 @@
 import 'package:learn_dart/model/example_model.dart';
 
-const List<ExampleModel> examples = [
+const List<ExampleModel> exampleList = [
   ExampleModel(
     title: "For loop",
-    subtitle: "this is subtitle",
+    description: "this is subtitle",
     program: '''
   void main() { 
    var num = 5; 
@@ -15,9 +15,4 @@ const List<ExampleModel> examples = [
    print(factorial); 
 }''',
   ),
-
-
-
-
-
 ];

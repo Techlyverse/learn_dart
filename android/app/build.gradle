@@ -29,7 +29,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace "com.learnapp.dart.app"
+    namespace "com.techlyverse.learn_dart"
     compileSdkVersion 34
     ndkVersion "25.1.8937393"
 
@@ -47,7 +47,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.learnapp.dart.app"
+        applicationId "com.techlyverse.learn_dart"
         minSdkVersion 19
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_dart/data/example_list.dart';
 import 'package:learn_dart/ui/example/example_feed.dart';
-import '../tutorial/tutorial_feed.dart';
 
 class ExampleTab extends StatefulWidget {
   const ExampleTab({super.key});
@@ -18,20 +16,16 @@ class _ExampleTabState extends State<ExampleTab> {
     final colorScheme = Theme.of(context).colorScheme;
     return Column(
       children: [
-        AppBar(
-          title: const Text("Examples"),
-        ),
+        AppBar(title: const Text("Examples")),
         Padding(
           padding: const EdgeInsets.all(12.0),
           child: TextField(
             onChanged: (value) {},
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: colorScheme.surfaceVariant,
-              contentPadding: const EdgeInsets.symmetric(horizontal: 8),
-              prefixIcon: const Icon(Icons.search),
-              hintText: "Search for examples",
-              hintStyle: const TextStyle(fontSize: 14),
+            decoration: const InputDecoration(
+              contentPadding: EdgeInsets.symmetric(horizontal: 8),
+              prefixIcon: Icon(Icons.search),
+              hintText: "Search examples",
+              hintStyle: TextStyle(fontSize: 14),
             ),
           ),
         ),
@@ -66,12 +60,8 @@ class _ExampleTabState extends State<ExampleTab> {
                 );
               }),
         ),
-        //  const SizedBox(height: 10),
-        //const Divider(),
-        ExampleFeed()
+        const ExampleFeed()
       ],
     );
   }
-
-
 }

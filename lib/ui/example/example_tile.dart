@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:learn_dart/model/example_model.dart';
 import 'package:learn_dart/ui/example/example_screen.dart';
 
+import '../../data/example_list.dart';
+
 class ExampleTile extends StatelessWidget {
-  const ExampleTile({super.key, required this.example, required this.index});
-  final ExampleModel example;
+  const ExampleTile({super.key, required this.index});
+
   final int index;
 
   @override
@@ -18,12 +20,12 @@ class ExampleTile extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => ExampleScreen(example:example)));
+                builder: (context) => ExampleScreen(index: index)));
       },
       leading: CircleAvatar(
         child: Text("$index"),
       ),
-      title: Text(example.title),
+      title: Text(exampleList[index].title),
     );
   }
 }

@@ -21,27 +21,24 @@ ThemeData lightTheme() {
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
     ),
-
-
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: lightColorScheme.primary,
         foregroundColor: lightColorScheme.onPrimary,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
-
     ),
-
-
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        backgroundColor: lightColorScheme.onInverseSurface,
+        foregroundColor: lightColorScheme.inverseSurface,
+        side: const BorderSide(width: 0.2),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      ),
+    ),
     inputDecorationTheme: InputDecorationTheme(
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12.0),
-      ),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.0)),
     ),
-    // iconButtonTheme: IconButtonThemeData(
-    //   style: IconButton.styleFrom(
-    //     backgroundColor: lightColorScheme.tertiaryContainer,
-    //   ),
-    // ),
     navigationBarTheme: NavigationBarThemeData(
       elevation: 0,
       labelTextStyle: MaterialStatePropertyAll(GoogleFonts.gluten()),

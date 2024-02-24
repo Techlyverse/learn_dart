@@ -1,18 +1,16 @@
 import 'package:flutter/widgets.dart';
-import '../ui/dashboard/dashboard_tab.dart';
+import '../ui/activity/playground_tab.dart';
 import '../ui/example/example_tab.dart';
-import '../ui/playground/playground_tab.dart';
 import '../ui/tutorial/tutorial_tab.dart';
 
 class AppProvider extends ChangeNotifier {
   static const List<Widget> pages = [
     TutorialTab(),
     ExampleTab(),
-    DashboardTab(),
     PlaygroundTab(),
   ];
 
-  int currentIndex = 3;
+  int currentIndex = 0;
   Widget get currentPage => pages[currentIndex];
 
   void updatePage(int index) {

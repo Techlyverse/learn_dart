@@ -21,34 +21,26 @@ class MainScreen extends StatelessWidget {
               NavigationDestination(
                 icon: Icon(Icons.home_outlined),
                 selectedIcon: Icon(
-                  Icons.home,
+                  Icons.home_rounded,
                   color: Colors.white,
                 ),
                 label: "Home",
               ),
               NavigationDestination(
-                icon: Icon(Icons.my_library_books_outlined),
+                icon: Icon(Icons.menu_book_outlined),
                 selectedIcon: Icon(
-                  Icons.my_library_books,
+                  Icons.menu_book_rounded,
                   color: Colors.white,
                 ),
                 label: "Examples",
               ),
               NavigationDestination(
-                icon: Icon(Icons.leaderboard_outlined),
+                icon: Icon(Icons.dashboard_outlined),
                 selectedIcon: Icon(
-                  Icons.leaderboard,
+                  Icons.dashboard_rounded,
                   color: Colors.white,
                 ),
-                label: "Rank",
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.sports_esports_outlined),
-                selectedIcon: Icon(
-                  Icons.sports_esports,
-                  color: Colors.white,
-                ),
-                label: "Play",
+                label: "Activity",
               ),
             ],
           ),

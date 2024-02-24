@@ -14,12 +14,11 @@ class ExampleFeed extends StatelessWidget {
         ),
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
-        itemCount: examples.length,
+        itemCount: exampleList.length,
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         itemBuilder: (_, index) {
           return ExampleTile(
             key: Key(index.toString()),
-            example: examples[index],
             index: index,
           );
         },

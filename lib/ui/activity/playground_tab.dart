@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:learn_dart/ui/game/game.dart';
-
+import 'package:learn_dart/ui/activity/playground.dart';
 import 'quizquestions.dart';
 
 class PlaygroundTab extends StatefulWidget {
@@ -14,10 +13,11 @@ class PlaygroundTab extends StatefulWidget {
 class _PlaygroundTabState extends State<PlaygroundTab> {
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width / 2 - 20;
     return Column(
       children: [
         AppBar(
-          title: const Text("Play"),
+          title: const Text("Activity"),
         ),
         InkWell(
           onTap: () {
@@ -121,6 +121,51 @@ class _PlaygroundTabState extends State<PlaygroundTab> {
         //     style: GoogleFonts.gluten(fontSize: 40),
         //   ),
         // ),
+
+        const SizedBox(height: 20),
+
+        Wrap(
+          spacing: 10,
+          runSpacing: 10,
+          children: [
+            SizedBox(
+              width: width,
+              height: 45,
+              child: OutlinedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.bookmark_outline),
+                label: const Text("Button 1"),
+              ),
+            ),
+            SizedBox(
+              width: width,
+              height: 45,
+              child: OutlinedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.favorite_outline_rounded),
+                label: const Text("Button 1"),
+              ),
+            ),
+            SizedBox(
+              width: width,
+              height: 45,
+              child: OutlinedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.timelapse),
+                label: const Text("Button 1"),
+              ),
+            ),
+            SizedBox(
+              width: width,
+              height: 45,
+              child: OutlinedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.dashboard_outlined),
+                label: const Text("Button 1"),
+              ),
+            ),
+          ],
+        ),
       ],
     );
   }
