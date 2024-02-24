@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:learn_dart/data/example_list.dart';
+import 'package:learn_dart/ui/example/example_feed.dart';
 import '../tutorial/tutorial_feed.dart';
 
 class ExampleTab extends StatefulWidget {
@@ -66,18 +68,10 @@ class _ExampleTabState extends State<ExampleTab> {
         ),
         //  const SizedBox(height: 10),
         //const Divider(),
-        buildFeedList(),
+        ExampleFeed()
       ],
     );
   }
 
-  Widget buildFeedList() {
-    return const SizedBox();
-    // return Expanded(
-    //   child:  FeedScreen(
-    // key: const Key("feed_screen"),
-    // snapshot: snapshot.data!,
-    // ),
-    // );
-  }
+
 }

@@ -26,6 +26,7 @@ dependencies:
   url_launcher: ^6.1.14 #To launch url
   profanity_filter: ^2.0.0 #To filter profane words
   date_time_format: ^2.0.1 #To format DateTime in readable format
+  flutter_markdown: ^0.6.20 #
 
   #editor
   dart_style: ^2.3.4

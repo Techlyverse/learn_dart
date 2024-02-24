@@ -18,7 +18,9 @@ class CodeViewer extends StatelessWidget {
               return Center(
                 child: Text.rich(
                   highlighter.data!,
-                  style: GoogleFonts.sourceCodePro(),
+                  style: GoogleFonts.sourceCodePro(
+                    fontSize: 16
+                  ),
                 ),
               );
             } else {
