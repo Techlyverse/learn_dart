@@ -12,7 +12,7 @@ ThemeData lightTheme() {
       elevation: 0,
       surfaceTintColor: Colors.transparent,
       backgroundColor: Colors.transparent,
-      titleTextStyle: GoogleFonts.gluten(
+      titleTextStyle: GoogleFonts.aBeeZee(
         fontSize: 20,
         color: Colors.black,
       ),
@@ -25,7 +25,8 @@ ThemeData lightTheme() {
       style: ElevatedButton.styleFrom(
         backgroundColor: lightColorScheme.primary,
         foregroundColor: lightColorScheme.onPrimary,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        side: BorderSide.none,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
@@ -33,11 +34,11 @@ ThemeData lightTheme() {
         backgroundColor: lightColorScheme.onInverseSurface,
         foregroundColor: lightColorScheme.inverseSurface,
         side: const BorderSide(width: 0.2),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.0)),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
     ),
     navigationBarTheme: NavigationBarThemeData(
       elevation: 0,

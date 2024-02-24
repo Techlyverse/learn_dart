@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:learn_dart/model/example_model.dart';
 import 'package:learn_dart/ui/example/example_screen.dart';
 
 import '../../data/example_list.dart';

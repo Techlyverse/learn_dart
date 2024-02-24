@@ -1,6 +1,6 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:learn_dart/provider/quizprovider.dart';
+import 'package:learn_dart/provider/quiz_provider.dart';
 import 'package:provider/provider.dart';
 
 class QuizScreen extends StatefulWidget {

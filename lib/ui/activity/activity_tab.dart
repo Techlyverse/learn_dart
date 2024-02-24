@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:learn_dart/ui/activity/playground.dart';
-import 'quizquestions.dart';
+import 'quiz_screen.dart';
 
 class PlaygroundTab extends StatefulWidget {
   const PlaygroundTab({super.key});

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../data/example_list.dart';
-import '../../widgets/code_viewer.dart';
+import 'package:learn_dart/widgets/markdown_viewer.dart';
+import '../../data/tutorial_list.dart';
 
-class ExampleScreen extends StatelessWidget {
-  const ExampleScreen({super.key, required this.index});
+class TutorialScreen extends StatelessWidget {
+  const TutorialScreen({super.key, required this.index});
   final int index;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(exampleList[index].title)),
+      appBar: AppBar(title: Text(tutorialList[index].title)),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: Column(
@@ -17,14 +17,14 @@ class ExampleScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 10),
             Text(
-              exampleList[index].description,
+              tutorialList[index].description,
               style: const TextStyle(fontSize: 16),
             ),
             const SizedBox(
               height: 50,
               width: double.maxFinite,
             ),
-            CodeViewer(program: exampleList[index].program),
+            MarkdownViewer(data: tutorialList[index].markdown),
             const SizedBox(height: 50),
             navigationButton(),
             const SizedBox(height: 50),
@@ -55,7 +55,7 @@ class ExampleScreen extends StatelessWidget {
           ),
         ),
         ElevatedButton(
-          onPressed: index < exampleList.length - 1 ? () {} : null,
+          onPressed: index < tutorialList.length - 1 ? () {} : null,
           child: const Row(
             children: [
               Text("Next"),

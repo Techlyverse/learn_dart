@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:learn_dart/model/tutorial_model.dart';
-import 'package:learn_dart/widgets/code_viewer.dart';
+import 'package:learn_dart/data/tutorial_list.dart';
+import 'package:learn_dart/ui/tutorial/tutorial_screen.dart';
 
 class TutorialTile extends StatelessWidget {
-  const TutorialTile({super.key, required this.tutorial, required this.index});
-  final TutorialModel tutorial;
+  const TutorialTile({super.key, required this.index});
   final int index;
 
   @override
@@ -18,12 +17,10 @@ class TutorialTile extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => CodeViewer(program: tutorial.program)));
+                builder: (context) => TutorialScreen(index: index)));
       },
-      leading: CircleAvatar(
-        child: Text("$index"),
-      ),
-      title: Text(tutorial.title),
+      leading: CircleAvatar(child: Text("$index")),
+      title: Text(tutorialList[index].title),
     );
   }
 }

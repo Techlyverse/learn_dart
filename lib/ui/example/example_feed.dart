@@ -16,17 +16,9 @@ class ExampleFeed extends StatelessWidget {
         scrollDirection: Axis.vertical,
         itemCount: exampleList.length,
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-        itemBuilder: (_, index) {
-          return ExampleTile(
-            key: Key(index.toString()),
-            index: index,
-          );
-        },
+        itemBuilder: (_, index) => ExampleTile(index: index),
         separatorBuilder: (_, i) {
-          return const Divider(
-            height: 10,
-            color: Colors.transparent,
-          );
+          return const Divider(height: 10, color: Colors.transparent);
         });
   }
 }

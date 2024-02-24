@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import '../ui/activity/playground_tab.dart';
+import '../ui/activity/activity_tab.dart';
 import '../ui/example/example_tab.dart';
 import '../ui/tutorial/tutorial_tab.dart';
 

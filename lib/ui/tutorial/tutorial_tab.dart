@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_dart/ui/tutorial/tutorial_feed.dart';
 
 class TutorialTab extends StatelessWidget {
   const TutorialTab({super.key});
@@ -6,7 +7,6 @@ class TutorialTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final width = MediaQuery.of(context).size.width - 40;
 
     return SingleChildScrollView(
       child: Column(
@@ -33,6 +33,7 @@ class TutorialTab extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
             ),
           ),
+          const TutorialFeed(),
         ],
       ),
     );

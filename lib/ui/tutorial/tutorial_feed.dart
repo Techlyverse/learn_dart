@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:learn_dart/model/tutorial_model.dart';
+import 'package:learn_dart/data/tutorial_list.dart';
 import 'tutorial_tile.dart';
 
 class TutorialFeed extends StatelessWidget {
-  const TutorialFeed({super.key, required this.tutorials});
-  final List<TutorialModel> tutorials;
+  const TutorialFeed({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,20 +14,11 @@ class TutorialFeed extends StatelessWidget {
         ),
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
-        itemCount: tutorials.length,
+        itemCount: tutorialList.length,
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-        itemBuilder: (_, index) {
-          return TutorialTile(
-            key: Key(index.toString()),
-            tutorial: tutorials[index],
-            index: index,
-          );
-        },
+        itemBuilder: (_, index) => TutorialTile(index: index),
         separatorBuilder: (_, i) {
-          return const Divider(
-            height: 10,
-            color: Colors.transparent,
-          );
+          return const Divider(height: 10, color: Colors.transparent);
         });
   }
 }
