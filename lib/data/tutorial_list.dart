@@ -1,0 +1,10 @@
+import '../model/tutorial_model.dart';
+
+const List<TutorialModel> tutorialList = [
+  TutorialModel(
+    title: "For loop",
+    description: "some description",
+    duration: "5 min",
+    fileName: "for_loop.md",
+  ),
+];

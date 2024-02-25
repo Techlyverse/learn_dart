@@ -108,7 +108,9 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                       child: ListTile(
                         tileColor: leader.position == 1
                             ? Colors.amberAccent
-                            : index%2 == 0 ? lightColorScheme.secondaryContainer : lightColorScheme.primaryContainer,
+                            : index % 2 == 0
+                                ? lightColorScheme.secondaryContainer
+                                : lightColorScheme.primaryContainer,
                         leading: Image.asset(
                           leader.imageAsset,
                           width: 50,
