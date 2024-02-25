@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:learn_dart/helper/ui_helper.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-import '../../shared/functions/open_bottombar.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -51,8 +51,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               horizontalTitleGap: 30,
             ),
             ListTile(
-              onTap: () {
-                openBottomBar(
+              onTap: () {UIHelper.
+                openBottomSheet(
                   context: context,
                   title: "Select an option to change theme",
                   child: Text("Hello")//themeOptions(themeProvider),
@@ -138,8 +138,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const Divider(),
             smallHeading("More", colorScheme),
             ListTile(
-              onTap: () {
-                openBottomBar(
+              onTap: () {UIHelper.
+                openBottomSheet(
                     context: context, child: logOutSheet(context));
               },
               leading: const Icon(Icons.logout),
@@ -187,7 +187,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 Align(
                     alignment: Alignment.bottomRight,
                     child: Image.asset(
-                      "assets/search.png",
+                      "assets/images/search.png",
                       height: 150,
                     ))
               ],
@@ -290,6 +290,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 }
+
+
+
 
 /*
 Padding(

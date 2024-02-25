@@ -1,4 +1,4 @@
-package com.learnapp.dart.app
+package com.techlyverse.learn_dart
 
 import io.flutter.embedding.android.FlutterActivity
 

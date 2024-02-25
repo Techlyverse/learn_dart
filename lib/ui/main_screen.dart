@@ -1,78 +1,121 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:learn_dart/ui/example_screen.dart';
-import 'package:learn_dart/ui/game/game.dart';
-import 'package:learn_dart/ui/home/home_screen.dart';
-import 'package:learn_dart/ui/leaderboard/leaderboard_screen.dart';
-import 'package:learn_dart/ui/quiz/quiz_screen.dart';
+import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
+import 'package:learn_dart/constant/app_constant.dart';
+import 'package:learn_dart/ui/example/example_screen.dart';
+import 'package:provider/provider.dart';
+import '../provider/app_provider.dart';
 
-class MainScreen extends StatefulWidget {
+class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
-
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  final currentUser = FirebaseAuth.instance.currentUser;
-  static const List<Widget> pages = [
-    HomeScreen(),
-    ExampleScreen(),
-    LeaderboardScreen(),
-    QuizScreen(),
-  ];
-  int currentPage = 3;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){FocusScope.of(context).unfocus();},
-      child: Scaffold(
-
-        body: pages[currentPage],
-        bottomNavigationBar: NavigationBar(
-          selectedIndex: currentPage,
-          onDestinationSelected: (value) {
-            setState(() {
-              currentPage = value;
-            });
-          },
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Consumer<AppProvider>(builder: (context, provider, child) {
+        return AdaptiveScaffold(
+          smallBreakpoint: const WidthPlatformBreakpoint(
+            end: AppConstant.smallBreakPoint,
+          ),
+          mediumBreakpoint: const WidthPlatformBreakpoint(
+            begin: AppConstant.smallBreakPoint,
+            end: AppConstant.mediumBreakPoint,
+          ),
+          largeBreakpoint: const WidthPlatformBreakpoint(
+            begin: AppConstant.mediumBreakPoint,
+          ),
+          useDrawer: false,
+          selectedIndex: provider.currentIndex,
+          onSelectedIndexChange: provider.updatePage,
           destinations: const [
             NavigationDestination(
               icon: Icon(Icons.home_outlined),
               selectedIcon: Icon(
-                Icons.home,
+                Icons.home_rounded,
                 color: Colors.white,
               ),
               label: "Home",
             ),
             NavigationDestination(
-              icon: Icon(Icons.my_library_books_outlined),
+              icon: Icon(Icons.menu_book_outlined),
               selectedIcon: Icon(
-                Icons.my_library_books,
+                Icons.menu_book_rounded,
                 color: Colors.white,
               ),
-              label: "Example",
+              label: "Examples",
             ),
             NavigationDestination(
-              icon: Icon(Icons.leaderboard_outlined),
+              icon: Icon(Icons.dashboard_outlined),
               selectedIcon: Icon(
-                Icons.leaderboard,
+                Icons.dashboard_rounded,
                 color: Colors.white,
               ),
-              label: "Rank",
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.sports_esports_outlined),
-              selectedIcon: Icon(
-                Icons.sports_esports,
-                color: Colors.white,
-              ),
-              label: "Game",
+              label: "Activity",
             ),
           ],
-        ),
-      ),
+          body: (_) => provider.primaryPage,
+          smallBody: (_) => provider.primaryPage,
+          secondaryBody: (_) => provider.secondaryPage,
+          smallSecondaryBody: AdaptiveScaffold.emptyBuilder,
+        );
+      }),
     );
   }
 }
+
+/*
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../provider/app_provider.dart';
+
+class MainScreen extends StatelessWidget {
+  const MainScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Consumer<AppProvider>(builder: (context, provider, child) {
+        return Scaffold(
+          body: provider.currentPage,
+          bottomNavigationBar: NavigationBar(
+            selectedIndex: provider.currentIndex,
+            onDestinationSelected: provider.updatePage,
+            destinations: const [
+              NavigationDestination(
+                icon: Icon(Icons.home_outlined),
+                selectedIcon: Icon(
+                  Icons.home_rounded,
+                  color: Colors.white,
+                ),
+                label: "Home",
+              ),
+              NavigationDestination(
+                icon: Icon(Icons.menu_book_outlined),
+                selectedIcon: Icon(
+                  Icons.menu_book_rounded,
+                  color: Colors.white,
+                ),
+                label: "Examples",
+              ),
+              NavigationDestination(
+                icon: Icon(Icons.dashboard_outlined),
+                selectedIcon: Icon(
+                  Icons.dashboard_rounded,
+                  color: Colors.white,
+                ),
+                label: "Activity",
+              ),
+            ],
+          ),
+        );
+      }),
+    );
+  }
+}
+
+ */
