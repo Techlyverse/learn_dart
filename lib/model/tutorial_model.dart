@@ -5,14 +5,15 @@ class TutorialModel {
     required this.title,
     required this.description,
     required this.duration,
-    required this.imagePath,
-    required this.markdown,
-    required this.quiz,
+    required this.fileName,
+    this.imagePath,
+    this.quiz,
   });
+
   final String title;
   final String description;
   final String duration;
-  final String imagePath;
-  final String markdown;
-  final QuizModel quiz;
+  final String fileName;
+  final String? imagePath;
+  final QuizModel? quiz;
 }

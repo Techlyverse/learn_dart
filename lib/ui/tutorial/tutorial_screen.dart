@@ -24,7 +24,7 @@ class TutorialScreen extends StatelessWidget {
               height: 50,
               width: double.maxFinite,
             ),
-            MarkdownViewer(data: tutorialList[index].markdown),
+            MarkdownViewer(fileName: tutorialList[index].fileName),
             const SizedBox(height: 50),
             navigationButton(),
             const SizedBox(height: 50),

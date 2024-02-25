@@ -19,6 +19,7 @@ dependencies:
   card_swiper: ^3.0.1
   cupertino_icons: ^1.0.2
   google_fonts: ^5.1.0
+  flutter_adaptive_scaffold: ^0.1.8
 
 
   # Features and Functionality
@@ -45,5 +46,7 @@ flutter:
 
   assets:
     - assets/
+    - assets/images/
+    - assets/tutorials/
 
 

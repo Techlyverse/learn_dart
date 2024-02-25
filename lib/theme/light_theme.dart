@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'color_scheme.dart';
 
 ThemeData lightTheme() {
@@ -43,6 +42,15 @@ ThemeData lightTheme() {
     navigationBarTheme: NavigationBarThemeData(
       elevation: 0,
       labelTextStyle: MaterialStatePropertyAll(GoogleFonts.gluten()),
+      backgroundColor: lightColorScheme.tertiaryContainer,
+      indicatorColor: lightColorScheme.primary,
+    ),
+    navigationRailTheme: NavigationRailThemeData(
+      //elevation: 0,
+      selectedLabelTextStyle:
+          GoogleFonts.gluten(color: lightColorScheme.primary),
+      unselectedLabelTextStyle:
+          GoogleFonts.gluten(color: lightColorScheme.onSurface),
       backgroundColor: lightColorScheme.tertiaryContainer,
       indicatorColor: lightColorScheme.primary,
     ),

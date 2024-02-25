@@ -187,7 +187,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 Align(
                     alignment: Alignment.bottomRight,
                     child: Image.asset(
-                      "assets/search.png",
+                      "assets/images/search.png",
                       height: 150,
                     ))
               ],
