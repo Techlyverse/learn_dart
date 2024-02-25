@@ -18,11 +18,7 @@ class CodeViewer extends StatelessWidget {
         vertical: 12,
       ),
       decoration: BoxDecoration(
-        color: colorScheme.onInverseSurface,
-        border: Border.all(
-          width: 0.5,
-          color: colorScheme.onBackground,
-        ),
+        color: colorScheme.background,
         borderRadius: BorderRadius.circular(12),
       ),
       child: FutureBuilder<InlineSpan>(

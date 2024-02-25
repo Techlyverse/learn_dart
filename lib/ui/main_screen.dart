@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
+import 'package:learn_dart/constant/app_constant.dart';
+import 'package:learn_dart/ui/example/example_screen.dart';
 import 'package:provider/provider.dart';
 import '../provider/app_provider.dart';
 
@@ -14,10 +16,16 @@ class MainScreen extends StatelessWidget {
       },
       child: Consumer<AppProvider>(builder: (context, provider, child) {
         return AdaptiveScaffold(
-          smallBreakpoint: const WidthPlatformBreakpoint(end: 700),
-          mediumBreakpoint:
-              const WidthPlatformBreakpoint(begin: 700, end: 1000),
-          largeBreakpoint: const WidthPlatformBreakpoint(begin: 1000),
+          smallBreakpoint: const WidthPlatformBreakpoint(
+            end: AppConstant.smallBreakPoint,
+          ),
+          mediumBreakpoint: const WidthPlatformBreakpoint(
+            begin: AppConstant.smallBreakPoint,
+            end: AppConstant.mediumBreakPoint,
+          ),
+          largeBreakpoint: const WidthPlatformBreakpoint(
+            begin: AppConstant.mediumBreakPoint,
+          ),
           useDrawer: false,
           selectedIndex: provider.currentIndex,
           onSelectedIndexChange: provider.updatePage,
@@ -47,10 +55,9 @@ class MainScreen extends StatelessWidget {
               label: "Activity",
             ),
           ],
-          body: (_) => provider.currentPage,
-          smallBody: (_) => provider.currentPage,
-          secondaryBody: (_) =>
-              Container(color: const Color.fromARGB(255, 234, 158, 192)),
+          body: (_) => provider.primaryPage,
+          smallBody: (_) => provider.primaryPage,
+          secondaryBody: (_) => provider.secondaryPage,
           smallSecondaryBody: AdaptiveScaffold.emptyBuilder,
         );
       }),

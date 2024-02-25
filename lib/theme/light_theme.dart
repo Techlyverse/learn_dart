@@ -55,7 +55,9 @@ ThemeData lightTheme() {
       indicatorColor: lightColorScheme.primary,
     ),
     listTileTheme: ListTileThemeData(
-      tileColor: lightColorScheme.secondaryContainer,
+      tileColor: lightColorScheme.surfaceVariant,
+      selectedColor: lightColorScheme.onSecondaryContainer,
+      selectedTileColor: lightColorScheme.secondaryContainer,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
