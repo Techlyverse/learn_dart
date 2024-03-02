@@ -1,11 +1,11 @@
 name: learn_dart
 description: "Learn by doing, code challenges, quizzes, and projects fuel your dart journey."
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.6 <4.0.0'
+  sdk: ">=3.0.6 <4.0.0"
 
 dependencies:
   flutter:
@@ -34,7 +34,6 @@ dependencies:
   syntax_highlight: ^0.3.0
   code_text_field: ^1.1.0
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -50,6 +49,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/tutorials/
+
 
 flutter_launcher_icons:
   android: false
@@ -82,6 +82,5 @@ flutter_launcher_icons:
 #  capabilities: "internetClient"
 #  app_installer:
 #    publish_folder_path: build
-
 
 
