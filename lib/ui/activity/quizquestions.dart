@@ -65,7 +65,7 @@ class _QuizQuestionState extends State<QuizQuestion> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Quiz"),
+        title: const Text("My Quiz"),
       ),
       body: Column(
         children: [
@@ -103,7 +103,7 @@ class _QuizQuestionState extends State<QuizQuestion> {
                           quizProvider.goBack();
                         }
                       : null,
-                  child: Text("Previous"),
+                  child: const Text("Previous"),
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -112,7 +112,7 @@ class _QuizQuestionState extends State<QuizQuestion> {
                   onPressed: () {
                     quizProvider.checkAnswer();
                   },
-                  child: Text("Next"),
+                  child: const Text("Next"),
                 ),
               ],
             ),
@@ -132,9 +132,9 @@ class _QuizQuestionState extends State<QuizQuestion> {
       children: [
         Text(
           question['question'],
-          style: TextStyle(fontSize: 20),
+          style: const TextStyle(fontSize: 20),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Column(
           children: List.generate(
             question['options'].length,
