@@ -21,13 +21,13 @@ dependencies:
   google_fonts: ^5.1.0
   flutter_adaptive_scaffold: ^0.1.8
 
-
   # Features and Functionality
   share_plus: ^7.1.0 #To implement share feature
   url_launcher: ^6.1.14 #To launch url
   profanity_filter: ^2.0.0 #To filter profane words
   date_time_format: ^2.0.1 #To format DateTime in readable format
   flutter_markdown: ^0.6.20 #
+  flutter_turtle: ^0.4.2
 
   #editor
   dart_style: ^2.3.4
@@ -40,6 +40,8 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
+  msix: ^3.16.7
 
 flutter:
   uses-material-design: true
@@ -48,5 +50,38 @@ flutter:
     - assets/
     - assets/images/
     - assets/tutorials/
+
+flutter_launcher_icons:
+  android: false
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/images/logo.png"
+  web:
+    generate: true
+    image_path: "assets/images/logo.png"
+    background_color: "#F1EAFF"
+    theme_color: "#F1EAFF"
+  windows:
+    generate: true
+    image_path: "assets/images/logo.png"
+    icon_size: 48
+  macos:
+    generate: true
+    image_path: "assets/images/logo.png"
+
+
+#msix_config:
+#  display_name: Learn Dart
+#  publisher_display_name: Techlyverse
+#  identity_name: com.techlyverse.learndart
+#  msix_version: 1.0.0.0
+#  logo_path: assets/images/logo.png
+#  publisher: CN=5d2cda28-09e6-4dd9-941c-c0b607fd3b9a
+#  store: true
+#  languages: en-us
+#  capabilities: "internetClient"
+#  app_installer:
+#    publish_folder_path: build
+
 
 
