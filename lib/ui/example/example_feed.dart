@@ -15,6 +15,7 @@ class ExampleFeed extends StatelessWidget {
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
         itemCount: exampleList.length,
+        physics: const NeverScrollableScrollPhysics(),
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         itemBuilder: (_, index) => ExampleTile(index: index),
         separatorBuilder: (_, i) {

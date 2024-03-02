@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_dart/ui/tutorial/tutorial_feed.dart';
 
@@ -25,12 +26,15 @@ class TutorialTab extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 20),
-          Container(
-            height: 200,
-            width: double.maxFinite,
-            decoration: BoxDecoration(
-              color: colorScheme.primaryContainer,
-              borderRadius: BorderRadius.circular(12),
+          AspectRatio(
+            aspectRatio: 21 / 9,
+            child: Container(
+              width: double.maxFinite,
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                color: colorScheme.primaryContainer,
+                borderRadius: BorderRadius.circular(12),
+              ),
             ),
           ),
           const TutorialFeed(),
