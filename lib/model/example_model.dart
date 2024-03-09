@@ -8,5 +8,5 @@ class ExampleModel {
   final String title;
   final String description;
   final String program;
-  final List<String>? type;
+  final String? type;
 }
