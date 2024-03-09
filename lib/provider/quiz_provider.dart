@@ -1,11 +1,13 @@
+import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 
 class QuizProvider with ChangeNotifier {
   int mainIndex = 0;
   Map<int, String?> selectedAnswers = {};
+  int totalscore = 0;
 
-  SwiperController swiperController = SwiperController();
+  AppinioSwiperController swiperController = AppinioSwiperController();
 
   List<Map<String, dynamic>> questions = [
     {
@@ -98,13 +100,9 @@ class QuizProvider with ChangeNotifier {
     return selectedAnswers[mainIndex];
   }
 
-  void updateMainIndex(int index) {
-    mainIndex = index;
-    notifyListeners();
-  }
-
   void updateSelectedAnswer(String value) {
     selectedAnswers[mainIndex] = value;
+    print("the selected anser ${selectedAnswers[mainIndex]}");
     notifyListeners();
   }
 
@@ -114,12 +112,14 @@ class QuizProvider with ChangeNotifier {
 
   void goBack() {
     mainIndex--;
-    swiperController.previous();
+    swiperController.unswipe();
     notifyListeners();
   }
 
-  void checkAnswer() {
-    if (selectedAnswer == questions[mainIndex]['correctAnswer']) {
+  void checkAnswer(index) {
+    print(
+        "the checking ${selectedAnswers[index]} and ${questions[index]['correctAnswer']}");
+    if (selectedAnswers[index] == questions[index]['correctAnswer']) {
       print('Correct');
     } else {
       print('Incorrect');
@@ -127,10 +127,8 @@ class QuizProvider with ChangeNotifier {
 
     if (mainIndex < questions.length - 1) {
       mainIndex++;
-      swiperController.next();
     } else {
-      // ScaffoldMessenger(child: child)
-      print('Quiz completed');
+      print('Quiz completed ${selectedAnswers}');
     }
 
     notifyListeners();
