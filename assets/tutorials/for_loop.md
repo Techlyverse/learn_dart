@@ -6,7 +6,11 @@ Understanding `if` and `else` statements is crucial for controlling the flow of 
 
 **Syntax:**
 
-```dart
-if (condition) {
-  // Code to be executed if the condition is true
+```
+void main{
+    if (condition) {
+    // Code to be executed if the condition is true
+    }
 }
+```
+

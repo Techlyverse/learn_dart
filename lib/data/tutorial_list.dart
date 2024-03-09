@@ -7,4 +7,6 @@ const List<TutorialModel> tutorialList = [
     duration: "5 min",
     fileName: "for_loop.md",
   ),
+
+  TutorialModel(title: "title", description: "description", duration: "duration", fileName: "oop_concepts.md")
 ];

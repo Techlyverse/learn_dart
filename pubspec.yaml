@@ -34,6 +34,7 @@ dependencies:
   syntax_highlight: ^0.3.0
   code_text_field: ^1.1.0
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

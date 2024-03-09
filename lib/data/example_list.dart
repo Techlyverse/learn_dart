@@ -46,6 +46,7 @@ const List<ExampleModel> exampleList = [
 
     int sum = num1 + num2;
     print("Sum: \$sum");
+  }  
   ''',
   ),
   ExampleModel(
@@ -57,6 +58,7 @@ const List<ExampleModel> exampleList = [
     int num2 = 5;
     int difference = num1 - num2;
     print("Difference: \$difference");
+  }  
   ''',
   ),
   ExampleModel(
@@ -130,3 +132,4 @@ const List<ExampleModel> exampleList = [
 
 
 ];
+

@@ -35,7 +35,7 @@ class MainScreen extends StatelessWidget {
                 Icons.home_rounded,
                 color: Colors.white,
               ),
-              label: "Home",
+              label: "Tutorials",
             ),
             NavigationDestination(
               icon: Icon(Icons.menu_book_outlined),
