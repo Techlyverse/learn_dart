@@ -15,6 +15,7 @@ class TutorialFeed extends StatelessWidget {
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
         itemCount: tutorialList.length,
+        physics: const NeverScrollableScrollPhysics(),
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         itemBuilder: (_, index) => TutorialTile(index: index),
         separatorBuilder: (_, i) {
