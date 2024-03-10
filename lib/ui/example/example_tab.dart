@@ -10,6 +10,7 @@ class ExampleTab extends StatefulWidget {
 
 class _ExampleTabState extends State<ExampleTab> {
   int selectedTopicIndex = 0;
+  String? selecteTopic;
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +37,10 @@ class _ExampleTabState extends State<ExampleTab> {
               child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemCount: 6,
+                  itemCount: 2, // Number of types
                   itemBuilder: (_, index) {
+                    String chipLabel =
+                        index == 0 ? "Basic" : "Control Flow statements";
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 5.0),
                       child: ChoiceChip(
@@ -49,12 +52,15 @@ class _ExampleTabState extends State<ExampleTab> {
                             color: selectedTopicIndex == index
                                 ? colorScheme.onPrimary
                                 : colorScheme.onSurface),
-                        label: Text("Button $index"),
+                        label: Text(chipLabel),
                         selected: selectedTopicIndex == index,
                         onSelected: (isSelected) {
                           if (isSelected) {
                             setState(() {
                               selectedTopicIndex = index;
+                              selecteTopic = index == 0
+                                  ? "Basic"
+                                  : "Control Flow statements";
                             });
                           }
                         },
@@ -62,7 +68,7 @@ class _ExampleTabState extends State<ExampleTab> {
                     );
                   }),
             ),
-            const ExampleFeed()
+            ExampleFeed(selectedType: selecteTopic ?? "")
           ],
         ),
       ),
