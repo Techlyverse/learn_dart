@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:learn_dart/provider/example_provider.dart';
+
 import 'package:learn_dart/ui/example/example_feed.dart';
+import 'package:provider/provider.dart';
+
+
 
 class ExampleTab extends StatefulWidget {
   const ExampleTab({super.key});
+  
 
   @override
   State<ExampleTab> createState() => _ExampleTabState();
@@ -10,10 +16,14 @@ class ExampleTab extends StatefulWidget {
 
 class _ExampleTabState extends State<ExampleTab> {
   int selectedTopicIndex = 0;
+  String? searchQuery;
+  
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final exampleProvider = Provider.of<ExampleProvider>(context);
+
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
@@ -22,7 +32,11 @@ class _ExampleTabState extends State<ExampleTab> {
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: TextField(
-                onChanged: (value) {},
+                onChanged: (value) {
+                  setState(() {
+                  searchQuery = value.toLowerCase(); // Make search case-insensitive
+  });
+                },
                 decoration: const InputDecoration(
                   contentPadding: EdgeInsets.symmetric(horizontal: 8),
                   prefixIcon: Icon(Icons.search),
@@ -38,6 +52,7 @@ class _ExampleTabState extends State<ExampleTab> {
                   scrollDirection: Axis.horizontal,
                   itemCount: 6,
                   itemBuilder: (_, index) {
+
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 5.0),
                       child: ChoiceChip(
@@ -56,16 +71,21 @@ class _ExampleTabState extends State<ExampleTab> {
                             setState(() {
                               selectedTopicIndex = index;
                             });
+
                           }
+                          exampleProvider.search("Basic");
                         },
                       ),
                     );
                   }),
             ),
-            const ExampleFeed()
+            ExampleFeed()
           ],
         ),
       ),
+      
     );
+   
   }
 }
+//exampleProvider.applyFilter("type1");

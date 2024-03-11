@@ -4,8 +4,9 @@ import 'package:provider/provider.dart';
 import '../../data/example_list.dart';
 
 class ExampleTile extends StatelessWidget {
-  const ExampleTile({super.key, required this.index});
+  const ExampleTile({super.key, required this.index,required this.examplestring});
   final int index;
+  final String examplestring;
 
   @override
   Widget build(BuildContext context) {

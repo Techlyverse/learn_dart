@@ -33,6 +33,7 @@ dependencies:
   dart_style: ^2.3.4
   syntax_highlight: ^0.3.0
   code_text_field: ^1.1.0
+  appinio_swiper: ^2.1.0
 
 
 dev_dependencies:
