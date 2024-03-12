@@ -7,21 +7,30 @@ import 'package:learn_dart/ui/example/example_screen.dart';
 class ExampleProvider extends ChangeNotifier {
   int currentIndex = 0;
   ExampleModel get currentExample => exampleList[currentIndex];
-  List<ExampleModel> searchList = exampleList;
+  // List<ExampleModel> searchList = exampleList;
+  List<ExampleModel> filteredList = exampleList;
+  String? selecteTopic;
   void updateIndex(int index) {
     currentIndex = index;
     notifyListeners();
   }
+
   void filterList(String value) {
-    
-    final filtered =searchList
+    filteredList = exampleList
         .where((example) =>
             example.title.toLowerCase().contains(value.toLowerCase()))
         .toList();
-    searchList = filtered;
+    print("the list ${filteredList}");
+    // searchList = filtered;
     notifyListeners();
   }
 
+  void chipsFilter() {
+    filteredList = (exampleList.isEmpty && selecteTopic == null)
+        ? exampleList
+        : exampleList.where((example) => example.type == selecteTopic).toList();
+    notifyListeners();
+  }
 
   void openExample({required BuildContext context, int? index}) {
     updateIndex(index ?? currentIndex);

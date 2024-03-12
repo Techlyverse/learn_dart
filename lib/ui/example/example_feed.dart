@@ -5,17 +5,18 @@ import '../../data/example_list.dart';
 import 'example_tile.dart';
 
 class ExampleFeed extends StatelessWidget {
-  const ExampleFeed({super.key, required this.selectedType});
-  final String selectedType;
-   final String searched="";
+  const ExampleFeed({super.key});
+  // final String selectedType;
+  final String searched = "";
   @override
   Widget build(BuildContext context) {
-    final filteredList = selectedType.isEmpty
-        ? exampleList
-        : exampleList.where((example) => example.type == selectedType).toList();
-    final searchList = searched.isEmpty
-      ? exampleList
-      : exampleList.where((example) => example.type == searched).toList();   
+    ExampleProvider exampleProivder = Provider.of<ExampleProvider>(context);
+    // final filteredList = selectedType.isEmpty
+    //     ? exampleList
+    //     : exampleList.where((example) => example.type == selectedType).toList();
+    // final searchList = searched.isEmpty
+    //   ? exampleList
+    //   : exampleList.where((example) => example.type == searched).toList();
 
     return ListView.separated(
         padding: const EdgeInsets.symmetric(
@@ -24,16 +25,15 @@ class ExampleFeed extends StatelessWidget {
         ),
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
-        itemCount: filteredList.length,
+        itemCount: exampleProivder.filteredList.length,
         physics: const NeverScrollableScrollPhysics(),
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         itemBuilder: (_, index) =>
-         ExampleTile(
-              index: index,
-              examples: Provider.of<ExampleProvider>(context).searchList.isNotEmpty
-      ? Provider.of<ExampleProvider>(context).searchList
-      : filteredList,
-            ),
+            ExampleTile(index: index, examples: exampleProivder.filteredList
+                // Provider.of<ExampleProvider>(context).searchList.isNotEmpty
+                //     ? Provider.of<ExampleProvider>(context).searchList
+                //     : filteredList,
+                ),
         separatorBuilder: (_, i) {
           return const Divider(height: 10, color: Colors.transparent);
         });

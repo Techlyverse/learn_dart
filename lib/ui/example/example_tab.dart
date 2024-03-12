@@ -14,13 +14,12 @@ class ExampleTab extends StatefulWidget {
 
 class _ExampleTabState extends State<ExampleTab> {
   int selectedTopicIndex = 0;
-  String? selecteTopic;
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final searchController = TextEditingController();
-   final provider = Provider.of<ExampleProvider>(context, listen: false);
+    final provider = Provider.of<ExampleProvider>(context, listen: false);
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
@@ -65,19 +64,21 @@ class _ExampleTabState extends State<ExampleTab> {
                         selected: selectedTopicIndex == index,
                         onSelected: (isSelected) {
                           if (isSelected) {
-                            setState(() {
-                              selectedTopicIndex = index;
-                              selecteTopic = index == 0
-                                  ? "Basic"
-                                  : "Control Flow statements";
-                            });
+                            // setState(() {
+                            selectedTopicIndex = index;
+                            provider.selecteTopic = index == 0
+                                ? "Basic"
+                                : "Control Flow statements";
+                            provider.chipsFilter();
+                            setState(() {});
+                            // });
                           }
                         },
                       ),
                     );
                   }),
             ),
-            ExampleFeed(selectedType: selecteTopic ?? "")
+            ExampleFeed()
           ],
         ),
       ),
