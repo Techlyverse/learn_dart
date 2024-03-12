@@ -6,35 +6,22 @@ import 'package:learn_dart/ui/example/example_screen.dart';
 
 class ExampleProvider extends ChangeNotifier {
   int currentIndex = 0;
-  List<ExampleModel> examplelist=[];
   ExampleModel get currentExample => exampleList[currentIndex];
-  String? filter;
-  final List<ExampleModel> _examples=exampleList;
-  List<ExampleModel> get examples => filter==null
-  ? _examples
-  : _examples.where((e)=>e.type==filter!).toList();
-
-  void applyFilter(String? newFilter) {
-  filter = newFilter;
-  notifyListeners();
-}
-
-
-void  search(filter){
-  print("printing list,$filter");
-  if(filter!=null){
-    examplelist=_examples;
-  }
-  else{
-   examplelist=  _examples.where((e)=>e.type==filter!).toList();
-  }
-  notifyListeners();
-}
-
+  List<ExampleModel> searchList = exampleList;
   void updateIndex(int index) {
     currentIndex = index;
     notifyListeners();
   }
+  void filterList(String value) {
+    
+    final filtered =searchList
+        .where((example) =>
+            example.title.toLowerCase().contains(value.toLowerCase()))
+        .toList();
+    searchList = filtered;
+    notifyListeners();
+  }
+
 
   void openExample({required BuildContext context, int? index}) {
     updateIndex(index ?? currentIndex);
@@ -43,5 +30,4 @@ void  search(filter){
           MaterialPageRoute(builder: (context) => const ExampleScreen()));
     }
   }
-
 }

@@ -4,9 +4,9 @@ import 'package:provider/provider.dart';
 import '../../data/example_list.dart';
 
 class ExampleTile extends StatelessWidget {
-  const ExampleTile({super.key, required this.index,required this.examplestring});
+  const ExampleTile({super.key, required this.index, required this.examples});
   final int index;
-  final String examplestring;
+  final List examples;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class ExampleTile extends StatelessWidget {
           selected: provider.currentIndex == index,
           onTap: () => provider.openExample(context: context, index: index),
           leading: CircleAvatar(child: Text("${index + 1}")),
-          title: Text(exampleList[index].title),
+          title: Text(examples[index].title),
           //subtitle: Text(exampleList[index].description),
         );
       },

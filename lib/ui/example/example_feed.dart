@@ -5,11 +5,18 @@ import '../../data/example_list.dart';
 import 'example_tile.dart';
 
 class ExampleFeed extends StatelessWidget {
-   ExampleFeed({super.key});
-  
+  const ExampleFeed({super.key, required this.selectedType});
+  final String selectedType;
+   final String searched="";
   @override
   Widget build(BuildContext context) {
-    final exampleProvider=Provider.of<ExampleProvider>(context);
+    final filteredList = selectedType.isEmpty
+        ? exampleList
+        : exampleList.where((example) => example.type == selectedType).toList();
+    final searchList = searched.isEmpty
+      ? exampleList
+      : exampleList.where((example) => example.type == searched).toList();   
+
     return ListView.separated(
         padding: const EdgeInsets.symmetric(
           horizontal: 12,
@@ -17,14 +24,16 @@ class ExampleFeed extends StatelessWidget {
         ),
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
-        itemCount: exampleProvider.examplelist.length,
+        itemCount: filteredList.length,
         physics: const NeverScrollableScrollPhysics(),
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-        itemBuilder: (_, index) {
-          final  name=exampleProvider.examplelist[index];
-           ExampleTile(index: index,examplestring: name.title);
-         
-        },
+        itemBuilder: (_, index) =>
+         ExampleTile(
+              index: index,
+              examples: Provider.of<ExampleProvider>(context).searchList.isNotEmpty
+      ? Provider.of<ExampleProvider>(context).searchList
+      : filteredList,
+            ),
         separatorBuilder: (_, i) {
           return const Divider(height: 10, color: Colors.transparent);
         });
