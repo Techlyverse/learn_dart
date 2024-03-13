@@ -8,7 +8,8 @@ class ExampleProvider extends ChangeNotifier {
   int currentIndex = 0;
   ExampleModel get currentExample => exampleList[currentIndex];
   // List<ExampleModel> searchList = exampleList;
-  List<ExampleModel> filteredList = exampleList;
+  // List<ExampleModel> filteredList = exampleList;
+  List<ExampleModel> filteredList = exampleList.where((example) => example.type == "Basic").toList(); 
   String? selecteTopic;
   void updateIndex(int index) {
     currentIndex = index;
@@ -16,11 +17,11 @@ class ExampleProvider extends ChangeNotifier {
   }
 
   void filterList(String value) {
-    filteredList = exampleList
+    filteredList = filteredList
         .where((example) =>
             example.title.toLowerCase().contains(value.toLowerCase()))
         .toList();
-    print("the list ${filteredList}");
+    // print("the list ${filteredList}");
     // searchList = filtered;
     notifyListeners();
   }
