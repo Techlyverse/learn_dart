@@ -17,13 +17,26 @@ class ExampleProvider extends ChangeNotifier {
   }
 
   void filterList(String value) {
-    filteredList = filteredList
-        .where((example) =>
-            example.title.toLowerCase().contains(value.toLowerCase()))
-        .toList();
-    // print("the list ${filteredList}");
-    // searchList = filtered;
-    notifyListeners();
+    // filteredList = filteredList
+    //     .where((example) =>
+    //         example.title.toLowerCase().contains(value.toLowerCase()))
+    //     .toList();
+  // notifyListeners();
+
+
+  //   filteredList = value.isEmpty
+  //     ? exampleList.where((example) => example.type == "Basic").toList()
+  //     : filteredList 
+  //         .where((example) => example.title.toLowerCase().contains(value.toLowerCase()))
+  //         .toList();
+  // notifyListeners();
+
+  if (value.isEmpty) {
+    filteredList = selecteTopic == null ? exampleList : exampleList.where((example) => example.type == selecteTopic).toList();
+  } else {
+    filteredList = (selecteTopic == null ? exampleList : exampleList.where((example) => example.type == selecteTopic)).where((example) => example.title.toLowerCase().contains(value.toLowerCase())).toList();
+  }
+  notifyListeners();
   }
 
   void chipsFilter() {
@@ -40,4 +53,5 @@ class ExampleProvider extends ChangeNotifier {
           MaterialPageRoute(builder: (context) => const ExampleScreen()));
     }
   }
+  
 }

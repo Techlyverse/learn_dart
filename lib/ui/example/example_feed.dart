@@ -11,12 +11,7 @@ class ExampleFeed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ExampleProvider exampleProivder = Provider.of<ExampleProvider>(context);
-    // final filteredList = selectedType.isEmpty
-    //     ? exampleList
-    //     : exampleList.where((example) => example.type == selectedType).toList();
-    // final searchList = searched.isEmpty
-    //   ? exampleList
-    //   : exampleList.where((example) => example.type == searched).toList();
+    
 
     return ListView.separated(
         padding: const EdgeInsets.symmetric(
