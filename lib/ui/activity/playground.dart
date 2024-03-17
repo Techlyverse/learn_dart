@@ -14,12 +14,24 @@ class PlayGroundScreen extends StatelessWidget {
           commands: [
             PenDown(),
             SetColor((_) => Colors.deepOrange),
-            Repeat((_) => 3, [
-              Forward((_) => 100),
-              Right((_) => 120),
+            Repeat((_) => 20, [
+              Repeat((_) => 180, [
+                Forward((_) => 3),
+                Right((_) => 2),
+              ]),
+              Right((_) => 20),
             ]),
             PenUp(),
           ],
+          // commands: [
+          //   PenDown(),
+          //   SetColor((_) => Colors.deepOrange),
+          //   Repeat((_) => 3, [
+          //     Forward((_) => 100),
+          //     Right((_) => 120),
+          //   ]),
+          //   PenUp(),
+          // ],
         ),
       ),
     );
