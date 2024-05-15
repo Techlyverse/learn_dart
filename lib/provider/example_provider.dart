@@ -49,8 +49,7 @@ class ExampleProvider extends ChangeNotifier {
   void openExample({required BuildContext context, int? index}) {
     updateIndex(index ?? currentIndex);
     if (MediaQuery.of(context).size.width < AppConstant.smallBreakPoint) {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const ExampleScreen()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const ExampleScreen()));
     }
   }
   

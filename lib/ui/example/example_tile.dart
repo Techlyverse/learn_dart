@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:learn_dart/model/example_model.dart';
 import 'package:learn_dart/provider/example_provider.dart';
 import 'package:provider/provider.dart';
-
 
 class ExampleTile extends StatelessWidget {
   const ExampleTile({super.key, required this.index, required this.examples});
   final int index;
   final List examples;
-  
 
   @override
   Widget build(BuildContext context) {

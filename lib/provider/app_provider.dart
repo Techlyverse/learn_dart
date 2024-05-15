@@ -12,15 +12,19 @@ class AppProvider extends ChangeNotifier {
     ExampleTab(),
     PlaygroundTab(),
   ];
+
+
   static const List<Widget> secondaryPages = [
     TutorialScreen(),
     ExampleScreen(),
     QuizScreen(),
   ];
 
+
   int currentIndex = 0;
   Widget get primaryPage => primaryPages[currentIndex];
   Widget get secondaryPage => secondaryPages[currentIndex];
+
 
   void updatePage(int index) {
     currentIndex = index;

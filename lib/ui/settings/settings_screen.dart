@@ -32,8 +32,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
               },
               leading: const Icon(Icons.account_circle_outlined),
-              title: Text("User name"),
-              subtitle: Text("someone@example.com"),
+              title: const Text("User name"),
+              subtitle: const Text("someone@example.com"),
 
               // title: Text(FirebaseConstant.userData!['name']),
               // subtitle: Text(FirebaseConstant.userData!['email']),
@@ -55,7 +55,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 openBottomSheet(
                   context: context,
                   title: "Select an option to change theme",
-                  child: Text("Hello")//themeOptions(themeProvider),
+                  child: const Text("Hello")//themeOptions(themeProvider),
                 );
               },
               leading: const Icon(Icons.brightness_4_outlined),
@@ -103,14 +103,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             ListTile(
               onTap: () async {
-                const String mail = "admin@astroshakti.us";
-                const String subject = "SUGGESTIONS for Astroshakti";
-                const String message = "Hi, I have following suggestions : ";
-                final Uri launchUri = Uri(
-                  scheme: 'mailto',
-                  path: mail,
-                  query: 'subject=$subject&body=$message',
-                );
                 //await launchUrl(launchUri);
               },
               leading: const Icon(Icons.tips_and_updates_outlined),
@@ -120,14 +112,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             ListTile(
               onTap: () async {
-                const String mail = "admin@astroshakti.us";
-                const String subject = "HELP AND FEEDBACK";
-                const String message = "this is body";
-                final Uri launchUri = Uri(
-                  scheme: 'mailto',
-                  path: mail,
-                  query: 'subject=$subject&body=$message',
-                );
                 //await launchUrl(launchUri);
               },
               leading: const Icon(Icons.help_outline),
@@ -258,7 +242,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               width: MediaQuery.of(context).size.width / 2 - 40,
               child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: colorScheme.surfaceVariant,
+                  backgroundColor: colorScheme.surfaceContainerHighest,
                   foregroundColor: colorScheme.onSurfaceVariant,
                 ),
                 onPressed: () {
