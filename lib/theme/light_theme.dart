@@ -47,10 +47,8 @@ ThemeData lightTheme() {
     ),
     navigationRailTheme: NavigationRailThemeData(
       //elevation: 0,
-      selectedLabelTextStyle:
-          GoogleFonts.ubuntu(color: lightColorScheme.primary),
-      unselectedLabelTextStyle:
-          GoogleFonts.ubuntu(color: lightColorScheme.onSurface),
+      selectedLabelTextStyle: GoogleFonts.ubuntu(color: lightColorScheme.onSurface),
+      unselectedLabelTextStyle: GoogleFonts.ubuntu(color: lightColorScheme.onSurface),
       backgroundColor: lightColorScheme.tertiaryContainer,
       indicatorColor: lightColorScheme.primary,
     ),

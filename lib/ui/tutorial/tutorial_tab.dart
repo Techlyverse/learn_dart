@@ -9,15 +9,7 @@ class TutorialTab extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          AppBar(
-            title: const Text("Welcome"),
-            actions: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.settings_outlined),
-              ),
-            ],
-          ),
+          AppBar(title: const Text("Welcome")),
           const SizedBox(height: 5),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
