@@ -6,6 +6,8 @@ import 'package:learn_dart/ui/activity/playground.dart';
 import 'package:learn_dart/ui/main_screen.dart';
 import 'package:provider/provider.dart';
 
+import 'ui/onboarding/onboarding.dart';
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
         theme: lightTheme(),
         darkTheme: darkTheme(),
         themeMode: ThemeMode.light,
-        home: const MainScreen(),
+        home: OnBoardingUI(),
       ),
     );
   }
