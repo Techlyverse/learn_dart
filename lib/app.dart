@@ -1,13 +1,9 @@
-import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:learn_dart/ui/main_screen.dart';
 import 'package:provider/provider.dart';
 import 'data/provider_list.dart';
 import 'theme/dark_theme.dart';
 import 'theme/light_theme.dart';
-import 'ui/main_screen.dart';
-
-import 'ui/onboarding/onboarding.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -20,7 +16,7 @@ class MyApp extends StatelessWidget {
         theme: lightTheme(),
         darkTheme: darkTheme(),
         themeMode: ThemeMode.light,
-        home: OnBoardingUI(),
+        home: const MainScreen(),
       ),
     );
   }
