@@ -30,7 +30,7 @@ class _QuizScreenState extends State<QuizScreen> {
               onSwipeEnd: (previousIndex, targetIndex, activity) {
                 print(
                     "the index ${targetIndex} and ${previousIndex} and ${activity}");
-                quizProvider.mainIndex = previousIndex;
+                quizProvider.mainIndex = targetIndex;
                 // print("the position ${position.index} ");
                 // quizProvider.updateMainIndex(position.index);
                 quizProvider.checkAnswer(previousIndex);
@@ -90,10 +90,12 @@ class _QuizScreenState extends State<QuizScreen> {
             children: List.generate(
               question['options'].length,
               (index) => Padding(
-                padding: EdgeInsets.all(
-                    (question['options'][index] == quizProvider.selectedAnswer)
-                        ? 0
-                        : 8.0),
+                padding: EdgeInsets.symmetric(
+                    horizontal: (question['options'][index] ==
+                            quizProvider.selectedAnswer)
+                        ? 12
+                        : 8.0,
+                    vertical: 8),
                 child: RadioListTile(
                   title: Text(question['options'][index]),
 

@@ -1,9 +1,11 @@
 import 'package:learn_dart/model/example_model.dart';
 
 const List<ExampleModel> exampleList = [
+  
   ExampleModel(
     title: "Hello World",
-    description: "This is a classic program in any programming language. It simply prints Hello World! ",
+    description:
+        "This is a classic program in any programming language. It simply prints Hello World! ",
     type: "Basic",
     program: '''
   void main() {
@@ -11,6 +13,7 @@ const List<ExampleModel> exampleList = [
   }
 ''',
   ),
+  
   ExampleModel(
     title: "Variables",
     description: "we declare a variable name and assign it a string value.",
@@ -21,9 +24,11 @@ const List<ExampleModel> exampleList = [
     print("Hello, \$name!");
   }''',
   ),
+  
   ExampleModel(
     title: "Data Types",
-    description: "Dart supports various data types like integers, doubles, booleans, and strings. Here's an example with different data types",
+    description:
+        "Dart supports various data types like integers, doubles, booleans, and strings. Here's an example with different data types",
     type: "Basic",
     program: '''
   void main() {
@@ -39,6 +44,7 @@ const List<ExampleModel> exampleList = [
   }
 ''',
   ),
+  
   ExampleModel(
     title: "Operators I",
     description: "Dart provides basic arithmetic operators",
@@ -54,6 +60,7 @@ const List<ExampleModel> exampleList = [
 
   ''',
   ),
+  
   ExampleModel(
     title: "Operators II",
     description: "Dart provides basic arithmetic operators",
@@ -67,6 +74,7 @@ const List<ExampleModel> exampleList = [
   }  
   ''',
   ),
+  
   ExampleModel(
     title: "Functions",
     description: "This example shows how to declare a function in Dart.",
@@ -81,10 +89,11 @@ const List<ExampleModel> exampleList = [
 }
 ''',
   ),
+  
   ExampleModel(
     title: "If-Else Statements I",
     description: "It checks if a number is even or odd.",
-    type:"Control Flow statements",
+    type: "Control Flow statements",
     program: '''
   void main() {
     var number = 7;
@@ -96,10 +105,11 @@ const List<ExampleModel> exampleList = [
 }
 ''',
   ),
+  
   ExampleModel(
     title: "If-Else Statements II",
     description: "",
-    type:"Control Flow statements",
+    type: "Control Flow statements",
     program: '''
   void main() {
     var grade = 85;
@@ -116,10 +126,11 @@ const List<ExampleModel> exampleList = [
 
 ''',
   ),
+  
   ExampleModel(
     title: "Loops I",
     description: "Basic For loop in Dart.",
-    type:"Control Flow statements",
+    type: "Control Flow statements",
     program: '''
   void main() {
     for (var i = 0; i < 5; i++) {
@@ -129,10 +140,11 @@ const List<ExampleModel> exampleList = [
 
 ''',
   ),
+  
   ExampleModel(
     title: "Loops II",
     description: "Basic While loop in Dart.",
-    type:"Control Flow statements",
+    type: "Control Flow statements",
     program: '''
   void main() {
     int count = 0;
@@ -143,10 +155,12 @@ const List<ExampleModel> exampleList = [
   }
 ''',
   ),
+  
   ExampleModel(
     title: "Lists",
-    description: "This example shows how to create a list and access its elements.",
-    type:"Basic",
+    description:
+        "This example shows how to create a list and access its elements.",
+    type: "Basic",
     program: '''
   void main() {
     var fruits = ['apple', 'banana', 'mango'];
@@ -154,6 +168,7 @@ const List<ExampleModel> exampleList = [
   }
 ''',
   ),
+  
   ExampleModel(
     title: "Sets",
     description: "Unordered collections of unique items.",
@@ -165,6 +180,7 @@ const List<ExampleModel> exampleList = [
   // Output: {1, 2, 3} 
   ''',
   ),
+   
   ExampleModel(
     title: "Maximum of two numbers",
     description: "",
@@ -180,10 +196,11 @@ const List<ExampleModel> exampleList = [
 
 ''',
   ),
+  
   ExampleModel(
     title: "Print elements in list",
     description: "Loop through a list and print its elements",
-    type:"Control Flow statements",
+    type: "Control Flow statements",
     program: '''
   void main() {
   List<String> companies = ['Amazon', 'Microsoft', 'Google'];
@@ -194,10 +211,11 @@ const List<ExampleModel> exampleList = [
   }
 ''',
   ),
+  
   ExampleModel(
     title: "Calculate Area",
     description: "Calculate the area of a rectangle",
-    type:"Basic",
+    type: "Basic",
     program: '''
   void main() {
   double length = 5.0;
@@ -210,10 +228,11 @@ const List<ExampleModel> exampleList = [
 
 ''',
   ),
+  
   ExampleModel(
     title: "Find average",
     description: "Find the average of a list of numbers",
-    type:"Control Flow statements",
+    type: "Control Flow statements",
     program: '''
   void main() {
   List<int> numbers = [10, 20, 30, 40];
@@ -229,6 +248,7 @@ const List<ExampleModel> exampleList = [
   }
 ''',
   ),
+  
   ExampleModel(
     title: "Combine Two Lists",
     description: "Combine two lists into a single list",
@@ -243,10 +263,11 @@ const List<ExampleModel> exampleList = [
   }
 ''',
   ),
+  
   ExampleModel(
     title: "Print in Reverse Order",
     description: "Print elements of a list in reverse order",
-    type:"Control Flow statements",
+    type: "Control Flow statements",
     program: '''
   void main() {
   List<int> numbers = [10, 20, 30, 40];
@@ -257,10 +278,11 @@ const List<ExampleModel> exampleList = [
   }
 ''',
   ),
+  
   ExampleModel(
     title: "Check Number",
     description: "Check if a number is positive, negative, or zero",
-    type:"Control Flow statements",
+    type: "Control Flow statements",
     program: '''
   void main() {
   int number = -5;
@@ -276,6 +298,7 @@ const List<ExampleModel> exampleList = [
 
 ''',
   ),
+  
   ExampleModel(
     title: "Convert string ",
     description: "Convert a string to uppercase",
@@ -288,6 +311,7 @@ const List<ExampleModel> exampleList = [
   }
 ''',
   ),
+  
   ExampleModel(
     title: "Check Empty",
     description: "Check if a list is empty",
@@ -303,6 +327,8 @@ const List<ExampleModel> exampleList = [
 ''',
   ),
 
-
+ 
 ];
+
+
 
