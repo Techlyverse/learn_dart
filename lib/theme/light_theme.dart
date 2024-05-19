@@ -11,8 +11,8 @@ ThemeData lightTheme() {
       elevation: 0,
       surfaceTintColor: Colors.transparent,
       backgroundColor: Colors.transparent,
-      titleTextStyle: GoogleFonts.aBeeZee(
-        fontSize: 20,
+      titleTextStyle: GoogleFonts.ubuntu(
+        fontSize: 18,
         color: Colors.black,
       ),
       systemOverlayStyle: const SystemUiOverlayStyle(
@@ -25,7 +25,7 @@ ThemeData lightTheme() {
         backgroundColor: lightColorScheme.primary,
         foregroundColor: lightColorScheme.onPrimary,
         side: BorderSide.none,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
@@ -33,29 +33,27 @@ ThemeData lightTheme() {
         backgroundColor: lightColorScheme.onInverseSurface,
         foregroundColor: lightColorScheme.inverseSurface,
         side: const BorderSide(width: 0.2),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.0)),
     ),
     navigationBarTheme: NavigationBarThemeData(
       elevation: 0,
-      labelTextStyle: MaterialStatePropertyAll(GoogleFonts.gluten()),
+      labelTextStyle: WidgetStatePropertyAll(GoogleFonts.ubuntu()),
       backgroundColor: lightColorScheme.tertiaryContainer,
       indicatorColor: lightColorScheme.primary,
     ),
     navigationRailTheme: NavigationRailThemeData(
       //elevation: 0,
-      selectedLabelTextStyle:
-          GoogleFonts.gluten(color: lightColorScheme.primary),
-      unselectedLabelTextStyle:
-          GoogleFonts.gluten(color: lightColorScheme.onSurface),
+      selectedLabelTextStyle: GoogleFonts.ubuntu(color: lightColorScheme.onSurface),
+      unselectedLabelTextStyle: GoogleFonts.ubuntu(color: lightColorScheme.onSurface),
       backgroundColor: lightColorScheme.tertiaryContainer,
       indicatorColor: lightColorScheme.primary,
     ),
     listTileTheme: ListTileThemeData(
-      tileColor: lightColorScheme.surfaceVariant,
+      tileColor: lightColorScheme.surfaceContainerHighest,
       selectedColor: lightColorScheme.onSecondaryContainer,
       selectedTileColor: lightColorScheme.secondaryContainer,
       shape: RoundedRectangleBorder(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_turtle/flutter_turtle.dart';
 
-class PlayGroundScreen extends StatelessWidget {
-  const PlayGroundScreen({super.key});
+class PlaygroundScreen extends StatelessWidget {
+  const PlaygroundScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

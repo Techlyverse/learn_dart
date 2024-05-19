@@ -120,9 +120,7 @@ class QuizProvider with ChangeNotifier {
 
   void checkAnswer() {
     if (selectedAnswer == questions[mainIndex]['correctAnswer']) {
-      print('Correct');
     } else {
-      print('Incorrect');
     }
 
     if (mainIndex < questions.length - 1) {
@@ -130,7 +128,6 @@ class QuizProvider with ChangeNotifier {
       swiperController.next();
     } else {
       // ScaffoldMessenger(child: child)
-      print('Quiz completed');
     }
 
     notifyListeners();

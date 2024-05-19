@@ -1,5 +1,4 @@
 import 'package:appinio_swiper/appinio_swiper.dart';
-import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 
 class QuizProvider with ChangeNotifier {
@@ -102,7 +101,6 @@ class QuizProvider with ChangeNotifier {
 
   void updateSelectedAnswer(String value) {
     selectedAnswers[mainIndex] = value;
-    print("the selected anser ${selectedAnswers[mainIndex]}");
     notifyListeners();
   }
 
@@ -117,18 +115,13 @@ class QuizProvider with ChangeNotifier {
   }
 
   void checkAnswer(index) {
-    print(
-        "the checking ${selectedAnswers[index]} and ${questions[index]['correctAnswer']}");
     if (selectedAnswers[index] == questions[index]['correctAnswer']) {
-      print('Correct');
     } else {
-      print('Incorrect');
     }
 
     if (mainIndex < questions.length - 1) {
       // mainIndex++;
     } else {
-      print('Quiz completed ${selectedAnswers}');
     }
 
     notifyListeners();

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:learn_dart/data/example_list.dart';
-
 import 'package:learn_dart/provider/example_provider.dart';
 import 'package:learn_dart/ui/example/example_feed.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +17,7 @@ class _ExampleTabState extends State<ExampleTab> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final searchController = TextEditingController();
+
     final provider = Provider.of<ExampleProvider>(context, listen: false);
     return SafeArea(
       child: SingleChildScrollView(
@@ -78,7 +77,7 @@ class _ExampleTabState extends State<ExampleTab> {
                     );
                   }),
             ),
-            ExampleFeed()
+            const ExampleFeed()
           ],
         ),
       ),

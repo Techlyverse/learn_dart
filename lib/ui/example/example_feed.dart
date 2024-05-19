@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_dart/provider/example_provider.dart';
 import 'package:provider/provider.dart';
-import '../../data/example_list.dart';
 import 'example_tile.dart';
 
 class ExampleFeed extends StatelessWidget {
@@ -10,9 +9,7 @@ class ExampleFeed extends StatelessWidget {
   final String searched = "";
   @override
   Widget build(BuildContext context) {
-    ExampleProvider exampleProivder = Provider.of<ExampleProvider>(context);
-    
-
+    ExampleProvider exampleProvider = Provider.of<ExampleProvider>(context);
     return ListView.separated(
         padding: const EdgeInsets.symmetric(
           horizontal: 12,
@@ -20,11 +17,11 @@ class ExampleFeed extends StatelessWidget {
         ),
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
-        itemCount: exampleProivder.filteredList.length,
+        itemCount: exampleProvider.filteredList.length,
         physics: const NeverScrollableScrollPhysics(),
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         itemBuilder: (_, index) =>
-            ExampleTile(index: index, examples: exampleProivder.filteredList
+            ExampleTile(index: index, examples: exampleProvider.filteredList
                 // Provider.of<ExampleProvider>(context).searchList.isNotEmpty
                 //     ? Provider.of<ExampleProvider>(context).searchList
                 //     : filteredList,

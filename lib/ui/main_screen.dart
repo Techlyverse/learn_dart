@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:learn_dart/constant/app_constant.dart';
+import 'package:learn_dart/data/tab_list.dart';
 import 'package:provider/provider.dart';
 import '../provider/app_provider.dart';
 
@@ -10,9 +11,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-      },
+      onTap: FocusScope.of(context).unfocus,
       child: Consumer<AppProvider>(builder: (context, provider, child) {
         return AdaptiveScaffold(
           smallBreakpoint: const WidthPlatformBreakpoint(
@@ -28,36 +27,17 @@ class MainScreen extends StatelessWidget {
           useDrawer: false,
           selectedIndex: provider.currentIndex,
           onSelectedIndexChange: provider.updatePage,
-          destinations: const [
-            NavigationDestination(
-              icon: Icon(Icons.home_outlined),
-              selectedIcon: Icon(
-                Icons.home_rounded,
-                color: Colors.white,
-              ),
-              label: "Tutorials",
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.menu_book_outlined),
-              selectedIcon: Icon(
-                Icons.menu_book_rounded,
-                color: Colors.white,
-              ),
-              label: "Examples",
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.dashboard_outlined),
-              selectedIcon: Icon(
-                Icons.dashboard_rounded,
-                color: Colors.white,
-              ),
-              label: "Activity",
-            ),
-          ],
-          body: (_) => provider.primaryPage,
-          smallBody: (_) => provider.primaryPage,
-          secondaryBody: (_) => provider.secondaryPage,
+          body: (_) => tabList[provider.currentIndex].primaryPage,
+          smallBody: (_) => tabList[provider.currentIndex].primaryPage,
+          secondaryBody: (_) => tabList[provider.currentIndex].secondaryPage,
           smallSecondaryBody: AdaptiveScaffold.emptyBuilder,
+          destinations: tabList
+              .map((e) => NavigationDestination(
+                    label: e.label,
+                    icon: Icon(e.icon),
+                    selectedIcon: Icon(e.selectedIcon, color: Colors.white),
+                  ))
+              .toList(),
         );
       }),
     );

@@ -1,5 +1,4 @@
 import 'package:appinio_swiper/appinio_swiper.dart';
-import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_dart/provider/quiz_provider.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +14,6 @@ class _QuizScreenState extends State<QuizScreen> {
   @override
   Widget build(BuildContext context) {
     QuizProvider quizProvider = Provider.of<QuizProvider>(context);
-    final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(
@@ -28,9 +26,7 @@ class _QuizScreenState extends State<QuizScreen> {
               cardCount: quizProvider.questions.length,
               controller: quizProvider.swiperController,
               onSwipeEnd: (previousIndex, targetIndex, activity) {
-                print(
-                    "the index ${targetIndex} and ${previousIndex} and ${activity}");
-                quizProvider.mainIndex = targetIndex;
+                quizProvider.mainIndex = previousIndex;
                 // print("the position ${position.index} ");
                 // quizProvider.updateMainIndex(position.index);
                 quizProvider.checkAnswer(previousIndex);
@@ -49,7 +45,6 @@ class _QuizScreenState extends State<QuizScreen> {
                 ElevatedButton(
                   onPressed: quizProvider.mainIndex > 0
                       ? () {
-                          print("the index ${quizProvider.mainIndex > 0}");
                           // quizProvider.swiperController.unswipe();
                           quizProvider.goBack();
                         }
@@ -90,12 +85,10 @@ class _QuizScreenState extends State<QuizScreen> {
             children: List.generate(
               question['options'].length,
               (index) => Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: (question['options'][index] ==
-                            quizProvider.selectedAnswer)
-                        ? 12
-                        : 8.0,
-                    vertical: 8),
+                padding: EdgeInsets.all(
+                    (question['options'][index] == quizProvider.selectedAnswer)
+                        ? 0
+                        : 8.0),
                 child: RadioListTile(
                   title: Text(question['options'][index]),
 
