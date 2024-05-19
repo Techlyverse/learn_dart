@@ -17,41 +17,35 @@ class _QuizTabState extends State<QuizTab> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          AppBar(title: const Text("Activity")),
+          AppBar(title: const Text("Quiz")),
 
-          InkWell(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const QuizScreen()));
-            },
-            child: Container(
-              height: 200,
-              width: double.maxFinite,
-              margin: const EdgeInsets.all(12),
-              //padding: const EdgeInsets.all(12),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  // gradient: const LinearGradient(
-                  //   begin: Alignment.topLeft,
-                  //   end: Alignment.bottomRight,
-                  //   colors: [
-                  //     Colors.blueAccent,
-                  //     Colors.lightBlueAccent,
-                  //   ],
-                  // ),
-                  image: const DecorationImage(
-                    image: AssetImage("assets/images/pink.jpg"),
-                    fit: BoxFit.cover,
-                    // filterQuality: FilterQuality.none,
-                  )),
+          Container(
+            height: 200,
+            width: double.maxFinite,
+            margin: const EdgeInsets.all(12),
+            //padding: const EdgeInsets.all(12),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                // gradient: const LinearGradient(
+                //   begin: Alignment.topLeft,
+                //   end: Alignment.bottomRight,
+                //   colors: [
+                //     Colors.blueAccent,
+                //     Colors.lightBlueAccent,
+                //   ],
+                // ),
+                image: const DecorationImage(
+                  image: AssetImage("assets/images/pink.jpg"),
+                  fit: BoxFit.cover,
+                  // filterQuality: FilterQuality.none,
+                )),
 
-              child: Text(
-                "Quiz",
-                style: GoogleFonts.gluten(
-                  fontSize: 30,
-                  color: Colors.grey.shade800,
-                ),
+            child: Text(
+              "Quiz",
+              style: GoogleFonts.gluten(
+                fontSize: 30,
+                color: Colors.grey.shade800,
               ),
             ),
           ),

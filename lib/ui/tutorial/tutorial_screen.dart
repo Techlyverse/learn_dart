@@ -9,8 +9,10 @@ class TutorialScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Consumer<TutorialProvider>(builder: (context, provider, child) {
       return Scaffold(
+        backgroundColor: colorScheme.surface,
         appBar: AppBar(title: Text(provider.currentTutorial.title)),
         body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -22,20 +24,10 @@ class TutorialScreen extends StatelessWidget {
                 provider.currentTutorial.description,
                 style: const TextStyle(fontSize: 16),
               ),
-              const SizedBox(
-                height: 50,
-                width: double.maxFinite,
-              ),
+              const SizedBox(height: 50),
               MarkdownViewer(fileName: provider.currentTutorial.fileName),
               const SizedBox(height: 50),
               navigationButton(provider),
-              const SizedBox(height: 50),
-              Container(
-                height: 200,
-                width: double.maxFinite,
-                color: Colors.grey.shade300,
-              ),
-              const SizedBox(height: 50),
             ],
           ),
         ),
@@ -48,7 +40,11 @@ class TutorialScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         ElevatedButton(
-          onPressed: provider.currentIndex > 0 ? () {provider.updateIndex(provider.currentIndex -1);} : null,
+          onPressed: provider.currentIndex > 0
+              ? () {
+                  provider.updateIndex(provider.currentIndex - 1);
+                }
+              : null,
           child: const Row(
             children: [
               Icon(Icons.arrow_back, size: 20),
@@ -58,7 +54,11 @@ class TutorialScreen extends StatelessWidget {
           ),
         ),
         ElevatedButton(
-          onPressed: provider.currentIndex < tutorialList.length - 1 ? () {provider.updateIndex(provider.currentIndex+1);} : null,
+          onPressed: provider.currentIndex < tutorialList.length - 1
+              ? () {
+                  provider.updateIndex(provider.currentIndex + 1);
+                }
+              : null,
           child: const Row(
             children: [
               Text("Next"),
