@@ -7,6 +7,8 @@ import 'theme/dark_theme.dart';
 import 'theme/light_theme.dart';
 import 'ui/main_screen.dart';
 
+import 'ui/onboarding/onboarding.dart';
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
         theme: lightTheme(),
         darkTheme: darkTheme(),
         themeMode: ThemeMode.light,
-        home: const MainScreen(),
+        home: OnBoardingUI(),
       ),
     );
   }

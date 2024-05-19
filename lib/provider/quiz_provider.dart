@@ -120,7 +120,7 @@ class QuizProvider with ChangeNotifier {
     }
 
     if (mainIndex < questions.length - 1) {
-      mainIndex++;
+      // mainIndex++;
     } else {
     }
 
