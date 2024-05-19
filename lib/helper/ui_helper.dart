@@ -6,10 +6,7 @@ class UIHelper {
   const UIHelper._();
 
   static void setUIStyle() {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]);
+
 
     SystemChrome.setEnabledSystemUIMode(
       SystemUiMode.edgeToEdge,
