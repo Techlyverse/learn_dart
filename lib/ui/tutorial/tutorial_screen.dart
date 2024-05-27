@@ -3,6 +3,7 @@ import 'package:learn_dart/widgets/markdown_viewer.dart';
 import 'package:provider/provider.dart';
 import '../../data/tutorial_list.dart';
 import '../../provider/tutorial_provider.dart';
+import '../../widgets/code_viewer.dart';
 
 class TutorialScreen extends StatelessWidget {
   const TutorialScreen({super.key});
@@ -25,6 +26,7 @@ class TutorialScreen extends StatelessWidget {
                 style: const TextStyle(fontSize: 16),
               ),
               const SizedBox(height: 50),
+              // CodeViewer(program: provider.currentTutorial.fileName),
               MarkdownViewer(fileName: provider.currentTutorial.fileName),
               const SizedBox(height: 50),
               navigationButton(provider),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_dart/provider/onBoardingprovider.dart';
+import 'package:learn_dart/ui/main_screen.dart';
 import 'package:provider/provider.dart';
 
 class OnBoardingUI extends StatelessWidget {
@@ -45,7 +46,7 @@ class OnBoardingUI extends StatelessWidget {
             ],
           ),
           Positioned(
-            top: MediaQuery.of(context).size.height / 1.5,
+            top: MediaQuery.of(context).size.height / 1.4,
             right: MediaQuery.of(context).size.width / 2.2,
             child: Text(onBoardingProvider.des[onBoardingProvider.activePage.toInt()]),
           ),
@@ -70,8 +71,15 @@ class OnBoardingUI extends StatelessWidget {
                       duration: Duration(milliseconds: 300),
                       curve: Curves.bounceIn,
                     );
+                    if(onBoardingProvider.activePage == 2) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => MainScreen()),
+                      );
+                    }
+
                   },
-                  child: Text("NEXT"),
+                  child: Text(onBoardingProvider.activePage == 2 ? "Continue": "NEXT"),
                 ),
               ),
             ),

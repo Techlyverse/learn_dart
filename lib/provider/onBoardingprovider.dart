@@ -24,26 +24,30 @@ class OnBoardingProvider with ChangeNotifier {
 
     for (var i = 0; i < 3; i++) {
       indicators.add(
-        i == activePage.round() ? _indicatorsTrue(i) : _indicatorsFalse(i),
+        i == activePage.round() ? _indicatorsTrue(i, i == activePage.round()) : _indicatorsTrue(i, i == activePage.round()),
       );
     }
     return indicators;
   }
 
-  Widget _indicatorsTrue(int index) {
+  Widget _indicatorsTrue(int index,bool istrue) {
     final int color;
     if (activePage == 0) {
       color = 0xffffe24e;
     } else if (activePage == 1) {
       color = 0xffa3e4f1;
-    } else {
+    } else if(activePage == 2){
+      color = 0xfff4a261;
+    }
+    else {
       color = 0xff31b77a;
     }
 
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
-      height: 100,
-      width: 100,
+      height: istrue ? 140 : 100,
+      width: istrue ? 120 : 100,
+      padding: EdgeInsets.symmetric(vertical: 6,horizontal: 6),
       margin: EdgeInsets.only(right: 8, bottom: 30),
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -51,26 +55,23 @@ class OnBoardingProvider with ChangeNotifier {
           fit: BoxFit.cover,
         ),
         borderRadius: BorderRadius.circular(50),
-        color: Color(color),
+        color:istrue ? Color( color)  : Colors.white,
       ),
     );
   }
 
-  Widget _indicatorsFalse(int index) {
-    return InkWell(
-      onTap: () {},
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
-        height: 100,
-        width: 60,
-        margin: const EdgeInsets.only(right: 8),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50),
-          color: Colors.grey.shade100,
-        ),
-      ),
-    );
-  }
+  // Widget _indicatorsFalse(int index) {
+  //   return AnimatedContainer(
+  //     duration: const Duration(milliseconds: 300),
+  //     height: 100,
+  //     width: 60,
+  //     margin: const EdgeInsets.only(right: 8),
+  //     decoration: BoxDecoration(
+  //       borderRadius: BorderRadius.circular(50),
+  //       color: Colors.grey.shade100,
+  //     ),
+  //   );
+  // }
 
   @override
   void dispose() {
