@@ -7,7 +7,7 @@ class SyntaxHelper {
   static const String _language = 'dart';
 
   static Future<void> initHighlighter() async {
-    await Highlighter.initialize(['dart', 'yaml']); //'sql'
+    await Highlighter.initialize(['dart']);
   }
 
   static Future<InlineSpan> getHighlighter(bool isDarkMode, String code) async {
