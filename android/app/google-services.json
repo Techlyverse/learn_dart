@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1070628852088",
+    "project_id": "learn-dart-d2be7",
+    "storage_bucket": "learn-dart-d2be7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070628852088:android:37cf67322e5a28d79fb88d",
+        "android_client_info": {
+          "package_name": "com.techlyverse.learn_dart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP91u52djYXIGqmXwhxv_MAYYKLQ3gqDM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
