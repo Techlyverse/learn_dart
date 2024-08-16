@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class QuizProvider with ChangeNotifier {
   int mainIndex = 0;
   Map<int, String?> selectedAnswers = {};
-  int totalscore = 0;
+  int totalScore = 0;
 
   AppinioSwiperController swiperController = AppinioSwiperController();
 
@@ -116,13 +116,11 @@ class QuizProvider with ChangeNotifier {
 
   void checkAnswer(index) {
     if (selectedAnswers[index] == questions[index]['correctAnswer']) {
-    } else {
-    }
+    } else {}
 
     if (mainIndex < questions.length - 1) {
       // mainIndex++;
-    } else {
-    }
+    } else {}
 
     notifyListeners();
   }

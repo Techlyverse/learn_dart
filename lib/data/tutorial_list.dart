@@ -7,7 +7,6 @@ const List<TutorialModel> tutorialList = [
     duration: "5 min",
     fileName: "for_loop.md",
   ),
-
   TutorialModel(
     title: "While loop",
     description: "Control Flow in Dart",
@@ -50,6 +49,4 @@ const List<TutorialModel> tutorialList = [
     duration: "10 min",
     fileName: "try_catch.md",
   ),
-  
-
 ];

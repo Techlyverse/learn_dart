@@ -7,40 +7,25 @@ import 'package:learn_dart/ui/example/example_screen.dart';
 class ExampleProvider extends ChangeNotifier {
   int currentIndex = 0;
   ExampleModel get currentExample => filteredList[currentIndex];
-  // List<ExampleModel> searchList = exampleList;
-  // List<ExampleModel> filteredList = exampleList;
-  List<ExampleModel> filteredList =
-      exampleList.where((example) => example.type == "Basic").toList();
-  String? selecteTopic;
+
+  List<ExampleModel> filteredList = exampleList.where((example) => example.type == "Basic").toList();
+  String? selectedTopic;
   void updateIndex(int index) {
     currentIndex = index;
     notifyListeners();
   }
 
   void filterList(String value) {
-    // filteredList = filteredList
-    //     .where((example) =>
-    //         example.title.toLowerCase().contains(value.toLowerCase()))
-    //     .toList();
-    // notifyListeners();
-
-    //   filteredList = value.isEmpty
-    //     ? exampleList.where((example) => example.type == "Basic").toList()
-    //     : filteredList
-    //         .where((example) => example.title.toLowerCase().contains(value.toLowerCase()))
-    //         .toList();
-    // notifyListeners();
-
     if (value.isEmpty) {
-      filteredList = selecteTopic == null
+      filteredList = selectedTopic == null
           ? exampleList
           : exampleList
-              .where((example) => example.type == selecteTopic)
+              .where((example) => example.type == selectedTopic)
               .toList();
     } else {
-      filteredList = (selecteTopic == null
+      filteredList = (selectedTopic == null
               ? exampleList
-              : exampleList.where((example) => example.type == selecteTopic))
+              : exampleList.where((example) => example.type == selectedTopic))
           .where((example) =>
               example.title.toLowerCase().contains(value.toLowerCase()))
           .toList();
@@ -49,9 +34,11 @@ class ExampleProvider extends ChangeNotifier {
   }
 
   void chipsFilter() {
-    filteredList = (exampleList.isEmpty && selecteTopic == null)
+    filteredList = (exampleList.isEmpty && selectedTopic == null)
         ? exampleList
-        : exampleList.where((example) => example.type == selecteTopic).toList();
+        : exampleList
+            .where((example) => example.type == selectedTopic)
+            .toList();
     notifyListeners();
   }
 

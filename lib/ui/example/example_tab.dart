@@ -65,7 +65,7 @@ class _ExampleTabState extends State<ExampleTab> {
                           if (isSelected) {
                             // setState(() {
                             selectedTopicIndex = index;
-                            provider.selecteTopic = index == 0
+                            provider.selectedTopic = index == 0
                                 ? "Basic"
                                 : "Control Flow statements";
                             provider.chipsFilter();

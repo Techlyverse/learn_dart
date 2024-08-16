@@ -15,33 +15,27 @@ dependencies:
   provider: ^6.1.1
 
   # User Interface
-  flutter_card_swiper: ^7.0.0
-  card_swiper: ^3.0.1
-  cupertino_icons: ^1.0.2
-  google_fonts: ^5.1.0
   flutter_adaptive_scaffold: ^0.1.8
+  cupertino_icons: ^1.0.2
+  appinio_swiper: ^2.1.0
+  google_fonts: ^6.2.1
+  animations: ^2.0.11
 
   # Features and Functionality
-  share_plus: ^7.1.0 #To implement share feature
-  url_launcher: ^6.1.14 #To launch url
-  profanity_filter: ^2.0.0 #To filter profane words
-  date_time_format: ^2.0.1 #To format DateTime in readable format
-  flutter_markdown: ^0.6.20 #
+  syntax_highlight: ^0.4.0
+  flutter_markdown: ^0.7.1
   flutter_turtle: ^0.4.2
-
-  #editor
+  url_launcher: ^6.1.14
+  share_plus: ^9.0.0
   dart_style: ^2.3.4
-  syntax_highlight: ^0.3.0
-  code_text_field: ^1.1.0
-  appinio_swiper: ^2.1.0
-  animations: ^2.0.11
+
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
+  flutter_lints: ^4.0.0
   flutter_launcher_icons: ^0.13.1
   msix: ^3.16.7
 
@@ -84,6 +78,6 @@ flutter_launcher_icons:
 #  languages: en-us
 #  capabilities: "internetClient"
 #  app_installer:
-#    publish_folder_path: build
+#  publish_folder_path: build
 
 
