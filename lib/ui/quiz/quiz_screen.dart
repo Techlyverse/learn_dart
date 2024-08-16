@@ -1,5 +1,6 @@
 import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:learn_dart/model/quiz_model.dart';
 import 'package:learn_dart/provider/quiz_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -66,7 +67,7 @@ class _QuizScreenState extends State<QuizScreen> {
     );
   }
 
-  Widget buildQuestion(Map<String, dynamic> question) {
+  Widget buildQuestion(QuizModel question) {
     QuizProvider quizProvider = Provider.of<QuizProvider>(context);
     final colorScheme = Theme.of(context).colorScheme;
 
@@ -77,28 +78,28 @@ class _QuizScreenState extends State<QuizScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            question['question'],
+            question.question,
             style: const TextStyle(fontSize: 20),
           ),
           const SizedBox(height: 20),
           Column(
             children: List.generate(
-              question['options'].length,
+              question.options.length,
               (index) => Padding(
                 padding: EdgeInsets.all(
-                    (question['options'][index] == quizProvider.selectedAnswer)
+                    (question.options[index] == quizProvider.selectedAnswer)
                         ? 0
                         : 8.0),
                 child: RadioListTile(
-                  title: Text(question['options'][index]),
+                  title: Text(question.options[index]),
 
                   tileColor:
-                      question['options'][index] == quizProvider.selectedAnswer
+                      question.options[index] == quizProvider.selectedAnswer
                           ? colorScheme.primaryContainer
                           : colorScheme.secondaryContainer,
                   // activeColor: colorScheme.error,
                   // fillColor: colorScheme.onError,
-                  value: question['options'][index],
+                  value: question.options[index],
                   groupValue: quizProvider.selectedAnswer,
                   onChanged: (value) {
                     quizProvider.updateSelectedAnswer(value);

@@ -12,13 +12,12 @@ class ExampleTab extends StatefulWidget {
 
 class _ExampleTabState extends State<ExampleTab> {
   int selectedTopicIndex = 0;
+  final searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final searchController = TextEditingController();
 
-    final provider = Provider.of<ExampleProvider>(context, listen: false);
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
@@ -29,7 +28,8 @@ class _ExampleTabState extends State<ExampleTab> {
               child: TextField(
                 controller: searchController,
                 onChanged: (value) {
-                  provider.filterList(value);
+                  // Update the search term in the provider
+                  context.read<ExampleProvider>().updateSearchTerm(value);
                 },
                 decoration: const InputDecoration(
                   contentPadding: EdgeInsets.symmetric(horizontal: 8),
@@ -42,55 +42,46 @@ class _ExampleTabState extends State<ExampleTab> {
             SizedBox(
               height: 50,
               child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 2,
-                  itemBuilder: (_, index) {
-                    String chipLabel =
-                        index == 0 ? "Basic" : "Control Flow statements";
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                      child: ChoiceChip(
-                        selectedColor: colorScheme.primary,
-                        checkmarkColor: selectedTopicIndex == index
-                            ? colorScheme.onPrimary
-                            : colorScheme.onSurface,
-                        labelStyle: TextStyle(
-                            color: selectedTopicIndex == index
-                                ? colorScheme.onPrimary
-                                : colorScheme.onSurface),
-                        label: Text(chipLabel),
-                        selected: selectedTopicIndex == index,
-                        onSelected: (isSelected) {
-                          if (isSelected) {
-                            // setState(() {
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: 2,
+                itemBuilder: (_, index) {
+                  String chipLabel =
+                      index == 0 ? "Basic" : "Control Flow statements";
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                    child: ChoiceChip(
+                      selectedColor: colorScheme.primary,
+                      checkmarkColor: selectedTopicIndex == index
+                          ? colorScheme.onPrimary
+                          : colorScheme.onSurface,
+                      labelStyle: TextStyle(
+                          color: selectedTopicIndex == index
+                              ? colorScheme.onPrimary
+                              : colorScheme.onSurface),
+                      label: Text(chipLabel),
+                      selected: selectedTopicIndex == index,
+                      onSelected: (isSelected) {
+                        if (isSelected) {
+                          setState(() {
                             selectedTopicIndex = index;
-                            provider.selectedTopic = index == 0
-                                ? "Basic"
-                                : "Control Flow statements";
-                            provider.chipsFilter();
-                            setState(() {});
-                            // });
-                          }
-                        },
-                      ),
-                    );
-                  }),
+                            // Update the selected topic in the provider
+                            context.read<ExampleProvider>().updateSelectedTopic(
+                                index == 0
+                                    ? "Basic"
+                                    : "Control Flow statements");
+                          });
+                        }
+                      },
+                    ),
+                  );
+                },
+              ),
             ),
-            const ExampleFeed()
+            const ExampleFeed(),
           ],
         ),
       ),
     );
   }
 }
-//   void filterList(String value) {
-//     final provider = Provider.of<ExampleProvider>(context, listen: false);
-//     final filtered = provider.searchList
-//         .where((example) =>
-//             example.title.toLowerCase().contains(value.toLowerCase()))
-//         .toList();
-//     provider.searchList = filtered;
-//     provider.notifyListeners();
-//   }
-// }

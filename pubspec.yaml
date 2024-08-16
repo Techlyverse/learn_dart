@@ -1,5 +1,5 @@
 name: learn_dart
-description: "Learn by doing, code challenges, quizzes, and projects fuel your dart journey."
+description: "Learn by doing, code challenges, quizzes, and projects fuel your Dart journey."
 publish_to: "none"
 
 version: 1.0.0+1
@@ -28,8 +28,9 @@ dependencies:
   url_launcher: ^6.1.14
   share_plus: ^9.0.0
   dart_style: ^2.3.4
-
-
+  code_text_field: ^1.1.0
+  firebase_core: ^2.24.2
+  cloud_firestore: ^4.14.0
 
 dev_dependencies:
   flutter_test:
@@ -46,7 +47,6 @@ flutter:
     - assets/
     - assets/images/
     - assets/tutorials/
-
 
 flutter_launcher_icons:
   android: false
@@ -65,19 +65,3 @@ flutter_launcher_icons:
   macos:
     generate: true
     image_path: "assets/images/logo.png"
-
-
-#msix_config:
-#  display_name: Learn Dart
-#  publisher_display_name: Techlyverse
-#  identity_name: com.techlyverse.learndart
-#  msix_version: 1.0.0.0
-#  logo_path: assets/images/logo.png
-#  publisher: CN=5d2cda28-09e6-4dd9-941c-c0b607fd3b9a
-#  store: true
-#  languages: en-us
-#  capabilities: "internetClient"
-#  app_installer:
-#  publish_folder_path: build
-
-

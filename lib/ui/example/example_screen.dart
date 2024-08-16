@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_dart/provider/example_provider.dart';
 import 'package:provider/provider.dart';
-import '../../data/example_list.dart';
 import '../../widgets/code_viewer.dart';
 
 class ExampleScreen extends StatelessWidget {
@@ -58,7 +57,7 @@ class ExampleScreen extends StatelessWidget {
           ),
         ),
         ElevatedButton(
-          onPressed: provider.currentIndex < exampleList.length - 1
+          onPressed: provider.currentIndex < provider.filteredList.length - 1
               ? () {
                   provider.updateIndex(provider.currentIndex + 1);
                 }
