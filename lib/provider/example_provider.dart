@@ -6,17 +6,14 @@ import 'package:learn_dart/ui/example/example_screen.dart';
 
 class ExampleProvider extends ChangeNotifier {
   int currentIndex = 0;
-  String? selectedTopic;
+  String selectedTopic = "Basic";
   String searchTerm = "";
 
-  // List that holds Firestore data
   List<ExampleModel> allExamples = [];
 
-  // Filtered list based on selected topic and search term
   List<ExampleModel> filteredList = [];
 
   ExampleProvider() {
-    // Fetch data on provider initialization
     fetchData();
   }
 
@@ -31,20 +28,31 @@ class ExampleProvider extends ChangeNotifier {
 
   Future<void> fetchData() async {
     try {
-      QuerySnapshot querySnapshot =
-          await FirebaseFirestore.instance.collection('examples').get();
+      FirebaseFirestore.instance
+          .collection('updates')
+          .doc('isUpdateAvailable')
+          .snapshots()
+          .listen((snapshot) {
+        print("the snapshot ${snapshot.data()}");
+        if (snapshot.exists && snapshot.data()?['isUpdateAvailable'] == true) {
+          FirebaseFirestore.instance
+              .collection('examples')
+              .snapshots()
+              .listen((querySnapshot) {
+            allExamples = querySnapshot.docs
+                .map((doc) => ExampleModel.fromFirestore(doc))
+                .toList();
 
-      // Map Firestore data to ExampleModel
-      allExamples = querySnapshot.docs
-          .map((doc) => ExampleModel.fromFirestore(doc))
-          .toList();
-
-      // Apply the initial filter (if any)
-      applyFilters();
-
-      notifyListeners();
+            applyFilters();
+          });
+        } else {
+          allExamples = [];
+          filteredList = [];
+          notifyListeners();
+        }
+      });
     } catch (e) {
-      print("Error fetching data: $e");
+      print("Error setting up listener: $e");
     }
   }
 
@@ -63,7 +71,7 @@ class ExampleProvider extends ChangeNotifier {
     applyFilters();
   }
 
-  void updateSelectedTopic(String? topic) {
+  void updateSelectedTopic(String topic) {
     selectedTopic = topic;
     applyFilters();
   }
